@@ -1190,130 +1190,420 @@
       }
     }
 
+
+    /* Clean tabbed travel organizer */
+    :root {
+      --bg: #f4f3ef;
+      --card: #ffffff;
+      --text: #202621;
+      --muted: #707870;
+      --line: #dfe3dd;
+      --primary: #27644e;
+      --primary-soft: #e9f2ed;
+      --success: #287457;
+      --success-soft: #e8f4ed;
+      --danger: #b84a4a;
+      --danger-soft: #fbecec;
+      --warning: #856b27;
+      --warning-soft: #f8f1d9;
+      --shadow: none;
+      --radius-xl: 12px;
+      --radius-lg: 10px;
+      --radius-md: 8px;
+      --radius-sm: 7px;
+    }
+
+    body {
+      background: #f4f3ef;
+      background-image: linear-gradient(rgba(55, 74, 63, 0.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(55, 74, 63, 0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Arial, sans-serif;
+    }
+
+    .app-shell {
+      width: min(980px, calc(100% - 30px));
+      padding: 18px 0 54px;
+    }
+
+    .app-topbar {
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .sync-status,
+    .site-settings-btn {
+      position: static;
+    }
+
+    .sync-status {
+      min-height: 30px;
+      max-width: calc(100% - 52px);
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 750;
+    }
+
+    .site-settings-btn {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: #fff;
+      color: #556158;
+      opacity: 1;
+      box-shadow: none;
+    }
+
+    .site-settings-btn:hover,
+    .site-settings-btn:focus-visible {
+      background: var(--primary-soft);
+      color: var(--primary);
+      transform: none;
+    }
+
+    .tab-nav {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 4px;
+      padding: 4px;
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.72);
+    }
+
+    .tab-button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 780;
+      transition: background .16s ease, color .16s ease;
+    }
+
+    .tab-button:hover { background: #f0f2ee; color: var(--text); }
+    .tab-button.is-active { background: var(--text); color: #fff; }
+    .tab-icon { font-size: 1rem; line-height: 1; }
+
+    .tab-panel[hidden] { display: none !important; }
+    .tab-panel { animation: panelIn .18s ease; }
+    @keyframes panelIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.94);
+      box-shadow: none !important;
+    }
+
+    .today-card::before { display: none; }
+    .section-card { padding: 24px; }
+    .section-header {
+      margin-bottom: 18px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-header h2 {
+      font-family: inherit;
+      font-size: 1.26rem;
+      letter-spacing: -0.02em;
+    }
+    .section-label { display: none; }
+
+    .btn,
+    .small-btn,
+    .icon-btn,
+    .close-btn,
+    .kebab,
+    .day-nav button {
+      border: 1px solid transparent;
+      border-radius: 8px;
+      box-shadow: none !important;
+    }
+
+    .btn {
+      min-height: 40px;
+      padding: 9px 14px;
+      background: var(--text);
+      color: #fff;
+    }
+    .btn.secondary { background: var(--primary-soft); color: var(--primary); }
+    .btn.ghost { border-color: var(--line); background: #fff; color: var(--text); }
+    .btn.danger { background: var(--danger-soft); color: var(--danger); }
+    .github-btn { background: #24292f; color: #fff; }
+    .small-btn { background: #f1f3ef; color: var(--muted); }
+    .small-btn.danger { background: var(--danger-soft); color: var(--danger); }
+
+    .btn:hover,
+    .small-btn:hover,
+    .icon-btn:hover {
+      transform: none;
+      filter: brightness(.97);
+    }
+    .btn:active, .small-btn:active { transform: none; }
+
+    .progress-wrap,
+    .remaining-card,
+    .day-nav,
+    .stat,
+    .schedule-item,
+    .expense-item,
+    .packing-item,
+    .trip-note,
+    .empty-state,
+    .full-item,
+    .notice {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: none !important;
+    }
+
+    .progress-wrap { background: #f7f8f5; }
+    .progress-track { border: 0; background: #e7ebe6; }
+    .progress-bar { background: var(--primary); }
+    .schedule-item, .expense-item, .packing-item, .full-item { background: #fff; }
+    .schedule-item:nth-child(odd) { background: #fff; }
+    .schedule-item:hover, .expense-item:hover, .packing-item:hover { border-color: #c8cec7; }
+    .time-pill { border: 0; border-radius: 6px; background: var(--primary-soft); color: var(--primary); }
+    .kebab { border-color: var(--line); background: #fff; }
+    .item-menu-popover { border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 12px 28px rgba(38,47,40,.12); }
+
+    .remaining-card { background: #f3f7f4; border-color: #d2dfd7; }
+    .remaining-card.over { background: var(--danger-soft); border-color: #efcccc; }
+    .stat { background: #f8f8f5; border-color: var(--line); }
+    .stat.spent-today { background: #edf4fb; border-color: #d7e4f1; color: #315f8f; }
+    .stat.spent-today span, .stat.spent-today strong { color: #315f8f; }
+    .stat.spent-overall { background: #faeeee; border-color: #efd7d7; color: #a34444; }
+    .stat.spent-overall span, .stat.spent-overall strong { color: #a34444; }
+    .day-nav { background: #f7f8f5; }
+    .day-nav button { border-color: var(--line); background: #fff; }
+
+    .field,
+    .field-group input,
+    .field-group textarea,
+    .field-group select,
+    .toolbar-input {
+      border: 1px solid #d6dbd5;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .field:focus,
+    .field-group input:focus,
+    .field-group textarea:focus,
+    .field-group select:focus,
+    .toolbar-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(39,100,78,.10);
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .contact-info-list { border-top: 0; padding-top: 0; }
+    .info-row { border-bottom: 1px solid var(--line); }
+    .trip-note { background: #f8f8f5; }
+    .detail-tools { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+
+    dialog {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 18px 48px rgba(29,38,32,.18);
+    }
+    .modal-header, .modal-footer { background: #fafaf8; border-color: var(--line); }
+    dialog::backdrop { background: rgba(29,36,31,.44); backdrop-filter: blur(2px); }
+    .toast { border: 0; border-radius: 8px; box-shadow: 0 10px 28px rgba(28,36,31,.18); }
+
+    @media (max-width: 760px) {
+      body { background-size: 24px 24px; }
+      .app-shell { width: min(100% - 20px, 980px); padding-top: 12px; }
+      .details-grid { grid-template-columns: 1fr; }
+      .section-card { padding: 19px 15px; }
+      .section-header { align-items: flex-start; }
+      .header-actions { width: 100%; }
+      .header-actions .btn { flex: 1 1 0; }
+      .tab-button { min-height: 44px; padding-inline: 7px; font-size: .84rem; }
+      .tab-icon { display: none; }
+      .budget-stats { grid-template-columns: 1fr; }
+      .budget-stats .stat:first-child { grid-column: auto; }
+      .info-row { grid-template-columns: 102px minmax(0, 1fr); }
+      dialog { border-radius: 12px 12px 0 0; box-shadow: 0 -12px 36px rgba(29,38,32,.18); }
+    }
+
+    @media print {
+      .app-topbar, .tab-nav { display: none !important; }
+      .tab-panel[hidden] { display: block !important; }
+      .tab-panel { margin-bottom: 18px; }
+      .details-grid { grid-template-columns: 1fr 1fr; }
+    }
+
   </style>
 </head>
 <body>
   <main class="app-shell">
-    <div class="sync-status" id="syncStatus" data-state="local" role="status" aria-live="polite">
-      <span class="sync-status-dot" aria-hidden="true"></span>
-      <span id="syncStatusText">Saved locally</span>
-    </div>
-    <button class="site-settings-btn" id="openSettingsBtn" type="button" aria-label="Edit trip settings" title="Edit trip settings">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 20h9" />
-        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
-      </svg>
-    </button>
-    <div class="grid">
-      <section class="card section-card today-card" aria-labelledby="todayScheduleTitle">
-        <div class="section-header">
-          <div class="section-title-wrap">
-            <h2 id="todayScheduleTitle">To-do</h2>
-            <div class="subtle" id="todayDateLabel"></div>
-          </div>
-          <div class="header-actions">
-            <button class="btn secondary" id="addScheduleBtn" type="button">＋ Add</button>
-            <button class="btn" id="seeFullScheduleBtn" type="button">See full schedule</button>
-          </div>
-        </div>
+    <header class="app-topbar">
+      <div class="sync-status" id="syncStatus" data-state="local" role="status" aria-live="polite">
+        <span class="sync-status-dot" aria-hidden="true"></span>
+        <span id="syncStatusText">Saved locally</span>
+      </div>
+      <button class="site-settings-btn" id="openSettingsBtn" type="button" aria-label="Edit trip settings" title="Edit trip settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 20h9" />
+          <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
+        </svg>
+      </button>
+    </header>
 
-        <div class="progress-wrap" id="scheduleProgressWrap">
-          <div class="progress-copy">
-            <span id="scheduleProgressText">0 of 0 completed</span>
-            <span id="scheduleProgressPercent">0%</span>
-          </div>
-          <div class="progress-track" aria-hidden="true">
-            <div class="progress-bar" id="scheduleProgressBar"></div>
-          </div>
-        </div>
+    <nav class="tab-nav" aria-label="Trip sections">
+      <button class="tab-button is-active" type="button" data-tab-target="todoPanel" aria-selected="true">
+        <span class="tab-icon" aria-hidden="true">✓</span>
+        <span>To-do</span>
+      </button>
+      <button class="tab-button" type="button" data-tab-target="budgetPanel" aria-selected="false">
+        <span class="tab-icon" aria-hidden="true">◒</span>
+        <span>Budget</span>
+      </button>
+      <button class="tab-button" type="button" data-tab-target="detailsPanel" aria-selected="false">
+        <span class="tab-icon" aria-hidden="true">⌁</span>
+        <span>Trip details</span>
+      </button>
+    </nav>
 
-        <div class="schedule-list" id="todayScheduleList"></div>
+    <div class="tab-panels">
+      <section class="tab-panel is-active" id="todoPanel" data-tab-panel aria-labelledby="todayScheduleTitle">
+        <section class="card section-card today-card">
+          <div class="section-header">
+            <div class="section-title-wrap">
+              <h2 id="todayScheduleTitle">To-do</h2>
+              <div class="subtle" id="todayDateLabel"></div>
+            </div>
+            <div class="header-actions">
+              <button class="btn secondary" id="addScheduleBtn" type="button">＋ Add</button>
+              <button class="btn" id="seeFullScheduleBtn" type="button">See full schedule</button>
+            </div>
+          </div>
+
+          <div class="progress-wrap" id="scheduleProgressWrap">
+            <div class="progress-copy">
+              <span id="scheduleProgressText">0 of 0 completed</span>
+              <span id="scheduleProgressPercent">0%</span>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <div class="progress-bar" id="scheduleProgressBar"></div>
+            </div>
+          </div>
+
+          <div class="schedule-list" id="todayScheduleList"></div>
+        </section>
       </section>
 
-      <section class="card section-card budget-card" aria-labelledby="budgetTitle">
-        <div class="section-header">
-          <div class="section-title-wrap">
-            <h2 id="budgetTitle">Budget</h2>
-            <div class="subtle">Daily entries, one trip total</div>
+      <section class="tab-panel" id="budgetPanel" data-tab-panel aria-labelledby="budgetTitle" hidden>
+        <section class="card section-card budget-card">
+          <div class="section-header">
+            <div class="section-title-wrap">
+              <h2 id="budgetTitle">Budget</h2>
+              <div class="subtle">Daily entries, one trip total</div>
+            </div>
+            <button class="btn ghost" id="quickBudgetSettingsBtn" type="button">Edit budget</button>
           </div>
-          <button class="btn ghost" id="quickBudgetSettingsBtn" type="button">Edit budget</button>
-        </div>
 
-        <div class="remaining-card" id="remainingCard">
-          <span class="remaining-label" id="remainingLabel">Remaining</span>
-          <strong class="remaining-value" id="remainingValue">—</strong>
-        </div>
-
-        <div class="budget-stats">
-          <div class="stat total-budget"><span>Total budget</span><strong id="totalBudgetValue">—</strong></div>
-          <div class="stat spent-today"><span>Spent today</span><strong id="spentDayValue">—</strong></div>
-          <div class="stat spent-overall"><span>Spent overall</span><strong id="spentOverallValue">—</strong></div>
-        </div>
-
-        <div class="day-nav" aria-label="Select budget day">
-          <button id="previousBudgetDayBtn" type="button" aria-label="Previous day">‹</button>
-          <div class="day-label">
-            <strong id="budgetDayTitle">Today</strong>
-            <span id="budgetDayDate"></span>
+          <div class="remaining-card" id="remainingCard">
+            <span class="remaining-label" id="remainingLabel">Remaining</span>
+            <strong class="remaining-value" id="remainingValue">—</strong>
           </div>
-          <button id="nextBudgetDayBtn" type="button" aria-label="Next day">›</button>
-        </div>
 
-        <form class="expense-form" id="expenseForm">
-          <label class="visually-hidden" for="expenseAmount">Amount used</label>
-          <input class="field" id="expenseAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Amount" required />
-          <label class="visually-hidden" for="expenseNote">Expense note</label>
-          <input class="field" id="expenseNote" type="text" maxlength="100" placeholder="Note, e.g. ramen" required />
-          <button class="btn" type="submit">Add expense</button>
-        </form>
-
-        <div class="expense-list" id="dailyExpenseList"></div>
-        <div class="section-footer">
-          <button class="btn secondary" id="seeExpenseDetailsBtn" type="button">See details · all days</button>
-        </div>
-      </section>
-    </div>
-
-    <div class="tools-grid">
-      <section class="card section-card" aria-labelledby="packingTitle">
-        <div class="section-header">
-          <div class="section-title-wrap">
-            <span class="section-label">Trip essentials</span>
-            <h2 id="packingTitle">Packing checklist</h2>
+          <div class="budget-stats">
+            <div class="stat total-budget"><span>Total budget</span><strong id="totalBudgetValue">—</strong></div>
+            <div class="stat spent-today"><span>Spent today</span><strong id="spentDayValue">—</strong></div>
+            <div class="stat spent-overall"><span>Spent overall</span><strong id="spentOverallValue">—</strong></div>
           </div>
-          <span class="subtle" id="packingProgress">0 / 0</span>
-        </div>
-        <form class="packing-input" id="packingForm">
-          <label class="visually-hidden" for="packingInput">Packing item</label>
-          <input class="field" id="packingInput" maxlength="80" placeholder="Add passport, charger, medicine…" required />
-          <button class="btn secondary" type="submit">Add</button>
-        </form>
-        <div class="packing-list" id="packingList"></div>
+
+          <div class="day-nav" aria-label="Select budget day">
+            <button id="previousBudgetDayBtn" type="button" aria-label="Previous day">‹</button>
+            <div class="day-label">
+              <strong id="budgetDayTitle">Today</strong>
+              <span id="budgetDayDate"></span>
+            </div>
+            <button id="nextBudgetDayBtn" type="button" aria-label="Next day">›</button>
+          </div>
+
+          <form class="expense-form" id="expenseForm">
+            <label class="visually-hidden" for="expenseAmount">Amount used</label>
+            <input class="field" id="expenseAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Amount" required />
+            <label class="visually-hidden" for="expenseNote">Expense note</label>
+            <input class="field" id="expenseNote" type="text" maxlength="100" placeholder="Note, e.g. ramen" required />
+            <button class="btn" type="submit">Add expense</button>
+          </form>
+
+          <div class="expense-list" id="dailyExpenseList"></div>
+          <div class="section-footer">
+            <button class="btn secondary" id="seeExpenseDetailsBtn" type="button">See details · all days</button>
+          </div>
+        </section>
       </section>
 
-      <section class="card section-card" aria-labelledby="tripInfoTitle">
-        <div class="section-header">
-          <div class="section-title-wrap">
-            <span class="section-label">Useful information</span>
-            <h2 id="tripInfoTitle">Room & contact notes</h2>
-          </div>
-          <button class="btn ghost" id="editDetailsBtn" type="button">Edit details</button>
-        </div>
-        <div class="info-list contact-info-list">
-          <div class="info-row"><span>Room address</span><span id="roomAddressDisplay">Not added</span></div>
-          <div class="info-row"><span id="phone1Label">Phone 1</span><span id="phone1Display">Not added</span></div>
-          <div class="info-row"><span id="phone2Label">Phone 2</span><span id="phone2Display">Not added</span></div>
-        </div>
-        <div class="other-details-wrap">
-          <strong>Other details</strong>
-          <div class="trip-note" id="otherDetailsDisplay">No other details yet.</div>
-        </div>
-        <div class="tool-row">
-          <button class="btn ghost" id="printBtn" type="button">Print</button>
-          <button class="btn ghost" id="exportBtn" type="button">Export data</button>
-          <button class="btn ghost" id="importBtn" type="button">Import data</button>
-          <button class="btn github-btn" id="openGitHubBtn" type="button">Publish data.json</button>
-          <input class="visually-hidden" id="importFile" type="file" accept="application/json,.json" />
+      <section class="tab-panel" id="detailsPanel" data-tab-panel aria-label="Trip details" hidden>
+        <div class="details-grid">
+          <section class="card section-card" aria-labelledby="packingTitle">
+            <div class="section-header">
+              <div class="section-title-wrap">
+                <h2 id="packingTitle">Packing checklist</h2>
+                <div class="subtle">Things to bring</div>
+              </div>
+              <span class="subtle" id="packingProgress">0 / 0</span>
+            </div>
+            <form class="packing-input" id="packingForm">
+              <label class="visually-hidden" for="packingInput">Packing item</label>
+              <input class="field" id="packingInput" maxlength="80" placeholder="Add passport, charger, medicine…" required />
+              <button class="btn secondary" type="submit">Add</button>
+            </form>
+            <div class="packing-list" id="packingList"></div>
+          </section>
+
+          <section class="card section-card" aria-labelledby="tripInfoTitle">
+            <div class="section-header">
+              <div class="section-title-wrap">
+                <h2 id="tripInfoTitle">Stay & contacts</h2>
+                <div class="subtle">Useful trip information</div>
+              </div>
+              <button class="btn ghost" id="editDetailsBtn" type="button">Edit details</button>
+            </div>
+            <div class="info-list contact-info-list">
+              <div class="info-row"><span>Room address</span><span id="roomAddressDisplay">Not added</span></div>
+              <div class="info-row"><span id="phone1Label">Phone 1</span><span id="phone1Display">Not added</span></div>
+              <div class="info-row"><span id="phone2Label">Phone 2</span><span id="phone2Display">Not added</span></div>
+            </div>
+            <div class="other-details-wrap">
+              <strong>Other details</strong>
+              <div class="trip-note" id="otherDetailsDisplay">No other details yet.</div>
+            </div>
+            <div class="tool-row detail-tools">
+              <button class="btn ghost" id="printBtn" type="button">Print</button>
+              <button class="btn ghost" id="exportBtn" type="button">Export data</button>
+              <button class="btn ghost" id="importBtn" type="button">Import data</button>
+              <button class="btn github-btn" id="openGitHubBtn" type="button">Publish data.json</button>
+              <input class="visually-hidden" id="importFile" type="file" accept="application/json,.json" />
+            </div>
+          </section>
         </div>
       </section>
     </div>
@@ -2501,6 +2791,32 @@
       state = loadState();
       renderAll();
     });
+
+
+    const TAB_STORAGE_KEY = "trip-itinerary-active-tab";
+
+    function activateTab(panelId, persist = true) {
+      const requested = document.getElementById(panelId) ? panelId : "todoPanel";
+      $$("[data-tab-target]").forEach(button => {
+        const active = button.dataset.tabTarget === requested;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-selected", String(active));
+      });
+      $$("[data-tab-panel]").forEach(panel => {
+        const active = panel.id === requested;
+        panel.classList.toggle("is-active", active);
+        panel.hidden = !active;
+      });
+      if (persist) localStorage.setItem(TAB_STORAGE_KEY, requested);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    $$("[data-tab-target]").forEach(button => {
+      button.addEventListener("click", () => activateTab(button.dataset.tabTarget));
+    });
+
+    const savedTab = localStorage.getItem(TAB_STORAGE_KEY);
+    activateTab(savedTab || "todoPanel", false);
 
     renderAll();
     if (getStoredGitHubToken()) setSyncStatus("local", "Ready · changes auto-publish");
