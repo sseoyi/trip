@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "trip": {
+    "startDate": "2026-07-18",
+    "endDate": "2026-07-20",
+    "totalBudget": 0,
+    "currency": "THB",
+    "roomAddress": "",
+    "phone1Name": "",
+    "phone1Number": "",
+    "phone2Name": "",
+    "phone2Number": "",
+    "otherDetails": ""
+  },
+  "github": {
+    "owner": "sseoyi",
+    "repo": "trip",
+    "branch": "main",
+    "path": "data.json"
+  },
+  "schedules": [],
+  "expenses": [],
+  "packing": [],
+  "selectedBudgetDate": "2026-07-18"
+}
