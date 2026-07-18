@@ -1456,6 +1456,225 @@
       .details-grid { grid-template-columns: 1fr 1fr; }
     }
 
+
+    /* Fast-entry travel dashboard refinements */
+    .app-topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .quick-expense-btn {
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid #d7deda;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--text);
+      font-size: .78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .quick-expense-btn:hover,
+    .quick-expense-btn:focus-visible {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .budget-stats {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 6px !important;
+      margin-bottom: 12px;
+    }
+
+    .budget-stats .stat,
+    .budget-stats .stat:first-child {
+      grid-column: auto !important;
+      padding: 8px 7px;
+      min-height: 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .budget-stats .stat span {
+      font-size: .61rem;
+      letter-spacing: .025em;
+      line-height: 1.2;
+    }
+
+    .budget-stats .stat strong {
+      margin-top: 3px;
+      font-size: clamp(.73rem, 2.4vw, .9rem);
+      line-height: 1.16;
+    }
+
+    .expense-form.quick-inline-form {
+      grid-template-columns: minmax(0, 1.35fr) minmax(100px, .65fr) auto;
+      margin: 0 0 14px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8f9f7;
+    }
+
+    .expense-form.quick-inline-form .field { min-width: 0; }
+
+    .details-priority-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .details-lower-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .compact-section-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .compact-section-header h2 { margin: 0; font-size: 1.08rem; }
+    .compact-section-header .subtle { margin-top: 2px; }
+
+    .memory-form {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+
+    .memory-form.place-form {
+      grid-template-columns: minmax(105px, .45fr) minmax(0, 1fr) auto;
+    }
+
+    .memory-form.time-form {
+      grid-template-columns: minmax(0, 1fr) 126px 98px auto;
+    }
+
+    .memory-form .field { min-width: 0; }
+    .memory-form .btn { min-height: 40px; padding-inline: 12px; }
+
+    .memory-list {
+      display: grid;
+      gap: 7px;
+    }
+
+    .memory-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .memory-item-main { min-width: 0; }
+    .memory-item-title {
+      display: block;
+      margin: 0 0 2px;
+      font-size: .92rem;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+    .memory-item-meta {
+      color: var(--muted);
+      font-size: .8rem;
+      overflow-wrap: anywhere;
+    }
+    .memory-item-meta a { color: var(--primary); text-decoration: none; }
+    .memory-item-note { margin-top: 3px; color: var(--muted); font-size: .78rem; white-space: pre-wrap; }
+    .memory-item-actions { display: flex; gap: 5px; }
+    .memory-item-actions .small-btn { padding: 6px 8px; }
+
+    .empty-inline {
+      padding: 9px 10px;
+      border: 1px dashed #d6dcd7;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: .8rem;
+      text-align: center;
+    }
+
+    .packing-secondary {
+      margin-top: 14px;
+      opacity: .96;
+    }
+
+    .packing-secondary .section-header { margin-bottom: 12px; }
+
+    .quick-expense-date-note {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f7f8f5;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    @media (max-width: 760px) {
+      .app-topbar { gap: 7px; }
+      .sync-status { max-width: none; min-width: 0; flex: 1 1 auto; overflow: hidden; }
+      #syncStatusText { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .app-topbar-actions { flex: 0 0 auto; gap: 6px; }
+      .quick-expense-btn { padding: 6px 8px; font-size: .72rem; }
+      .site-settings-btn { width: 34px; height: 34px; }
+
+      .expense-form.quick-inline-form {
+        grid-template-columns: minmax(0, 1fr) 105px;
+      }
+      .expense-form.quick-inline-form .btn { grid-column: 1 / -1; width: 100%; }
+
+      .details-priority-grid,
+      .details-lower-grid { grid-template-columns: 1fr; }
+
+      .memory-form.place-form,
+      .memory-form.time-form {
+        grid-template-columns: 1fr 1fr;
+      }
+      .memory-form.place-form input:nth-of-type(2),
+      .memory-form.time-form input:first-of-type { grid-column: 1 / -1; }
+      .memory-form .btn { grid-column: 1 / -1; width: 100%; }
+
+      .budget-stats .stat { padding: 7px 5px; min-height: 55px; }
+      .budget-stats .stat span { font-size: .55rem; }
+      .budget-stats .stat strong { font-size: clamp(.68rem, 2.7vw, .82rem); }
+    }
+
+
+    .app-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      padding: 7px 0;
+      background: rgba(244, 243, 239, .94);
+      border-bottom: 1px solid rgba(209, 215, 210, .85);
+      backdrop-filter: blur(8px);
+    }
+
+    #importantPlaceNote,
+    #importantTimeDetails { grid-column: 1 / -1; }
+
+    @media (max-width: 760px) {
+      #importantPlaceName,
+      #importantPlaceAddress,
+      #importantTimeTitle { grid-column: 1 / -1; }
+    }
+
   </style>
 </head>
 <body>
@@ -1465,12 +1684,15 @@
         <span class="sync-status-dot" aria-hidden="true"></span>
         <span id="syncStatusText">Saved locally</span>
       </div>
-      <button class="site-settings-btn" id="openSettingsBtn" type="button" aria-label="Edit trip settings" title="Edit trip settings">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 20h9" />
-          <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
-        </svg>
-      </button>
+      <div class="app-topbar-actions">
+        <button class="quick-expense-btn" id="openQuickExpenseBtn" type="button">＋ Expense</button>
+        <button class="site-settings-btn" id="openSettingsBtn" type="button" aria-label="Edit trip settings" title="Edit trip settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
+          </svg>
+        </button>
+      </div>
     </header>
 
     <nav class="tab-nav" aria-label="Trip sections">
@@ -1526,6 +1748,14 @@
             <button class="btn ghost" id="quickBudgetSettingsBtn" type="button">Edit budget</button>
           </div>
 
+          <form class="expense-form quick-inline-form" id="expenseForm">
+            <label class="visually-hidden" for="expenseNote">Expense name</label>
+            <input class="field" id="expenseNote" type="text" maxlength="100" placeholder="What did you buy? e.g. ramen" required />
+            <label class="visually-hidden" for="expenseAmount">Amount used</label>
+            <input class="field" id="expenseAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Amount" required />
+            <button class="btn" type="submit">Add expense</button>
+          </form>
+
           <div class="remaining-card" id="remainingCard">
             <span class="remaining-label" id="remainingLabel">Remaining</span>
             <strong class="remaining-value" id="remainingValue">—</strong>
@@ -1546,14 +1776,6 @@
             <button id="nextBudgetDayBtn" type="button" aria-label="Next day">›</button>
           </div>
 
-          <form class="expense-form" id="expenseForm">
-            <label class="visually-hidden" for="expenseAmount">Amount used</label>
-            <input class="field" id="expenseAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Amount" required />
-            <label class="visually-hidden" for="expenseNote">Expense note</label>
-            <input class="field" id="expenseNote" type="text" maxlength="100" placeholder="Note, e.g. ramen" required />
-            <button class="btn" type="submit">Add expense</button>
-          </form>
-
           <div class="expense-list" id="dailyExpenseList"></div>
           <div class="section-footer">
             <button class="btn secondary" id="seeExpenseDetailsBtn" type="button">See details · all days</button>
@@ -1562,28 +1784,56 @@
       </section>
 
       <section class="tab-panel" id="detailsPanel" data-tab-panel aria-label="Trip details" hidden>
-        <div class="details-grid">
-          <section class="card section-card" aria-labelledby="packingTitle">
-            <div class="section-header">
-              <div class="section-title-wrap">
-                <h2 id="packingTitle">Packing checklist</h2>
-                <div class="subtle">Things to bring</div>
+        <div class="details-priority-grid">
+          <section class="card section-card" aria-labelledby="importantPlacesTitle">
+            <div class="compact-section-header">
+              <div>
+                <h2 id="importantPlacesTitle">Important addresses</h2>
+                <div class="subtle">Hotel, airport, venue, meeting point</div>
               </div>
-              <span class="subtle" id="packingProgress">0 / 0</span>
             </div>
-            <form class="packing-input" id="packingForm">
-              <label class="visually-hidden" for="packingInput">Packing item</label>
-              <input class="field" id="packingInput" maxlength="80" placeholder="Add passport, charger, medicine…" required />
-              <button class="btn secondary" type="submit">Add</button>
+            <form class="memory-form place-form" id="importantPlaceForm">
+              <input id="importantPlaceId" type="hidden" />
+              <label class="visually-hidden" for="importantPlaceName">Place name</label>
+              <input class="field" id="importantPlaceName" maxlength="80" placeholder="Name, e.g. Airport" required />
+              <label class="visually-hidden" for="importantPlaceAddress">Address</label>
+              <input class="field" id="importantPlaceAddress" maxlength="240" placeholder="Paste address or place name" required />
+              <button class="btn secondary" id="importantPlaceSubmitBtn" type="submit">Add</button>
+              <label class="visually-hidden" for="importantPlaceNote">Place details</label>
+              <input class="field" id="importantPlaceNote" maxlength="180" placeholder="Optional: floor, entrance, booking name…" />
             </form>
-            <div class="packing-list" id="packingList"></div>
+            <div class="memory-list" id="importantPlacesList"></div>
           </section>
 
+          <section class="card section-card" aria-labelledby="importantTimesTitle">
+            <div class="compact-section-header">
+              <div>
+                <h2 id="importantTimesTitle">Important times</h2>
+                <div class="subtle">Flights, shows, check-in, reservations</div>
+              </div>
+            </div>
+            <form class="memory-form time-form" id="importantTimeForm">
+              <input id="importantTimeId" type="hidden" />
+              <label class="visually-hidden" for="importantTimeTitle">Reminder name</label>
+              <input class="field" id="importantTimeTitle" maxlength="100" placeholder="Name, e.g. Flight TG102" required />
+              <label class="visually-hidden" for="importantTimeDate">Date</label>
+              <input class="field" id="importantTimeDate" type="date" required />
+              <label class="visually-hidden" for="importantTimeClock">Time</label>
+              <input class="field" id="importantTimeClock" type="time" required />
+              <button class="btn secondary" id="importantTimeSubmitBtn" type="submit">Add</button>
+              <label class="visually-hidden" for="importantTimeDetails">Reminder details</label>
+              <input class="field" id="importantTimeDetails" maxlength="220" placeholder="Optional: terminal, gate, seat, booking code, show entry…" />
+            </form>
+            <div class="memory-list" id="importantTimesList"></div>
+          </section>
+        </div>
+
+        <div class="details-lower-grid">
           <section class="card section-card" aria-labelledby="tripInfoTitle">
             <div class="section-header">
               <div class="section-title-wrap">
                 <h2 id="tripInfoTitle">Stay & contacts</h2>
-                <div class="subtle">Useful trip information</div>
+                <div class="subtle">Room, phone numbers, and other useful notes</div>
               </div>
               <button class="btn ghost" id="editDetailsBtn" type="button">Edit details</button>
             </div>
@@ -1605,9 +1855,57 @@
             </div>
           </section>
         </div>
+
+        <section class="card section-card packing-secondary" aria-labelledby="packingTitle">
+            <div class="section-header">
+              <div class="section-title-wrap">
+                <h2 id="packingTitle">Packing checklist</h2>
+                <div class="subtle">Optional list for things to bring</div>
+              </div>
+              <span class="subtle" id="packingProgress">0 / 0</span>
+            </div>
+            <form class="packing-input" id="packingForm">
+              <label class="visually-hidden" for="packingInput">Packing item</label>
+              <input class="field" id="packingInput" maxlength="80" placeholder="Passport, charger, medicine…" required />
+              <button class="btn secondary" type="submit">Add</button>
+            </form>
+            <div class="packing-list" id="packingList"></div>
+        </section>
       </section>
     </div>
   </main>
+
+  <dialog id="quickExpenseDialog">
+    <form class="modal-shell" id="quickExpenseForm" method="dialog">
+      <div class="modal-header">
+        <div>
+          <h2>Add expense</h2>
+        </div>
+        <button class="close-btn" type="button" data-close="quickExpenseDialog" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="quick-expense-date-note" id="quickExpenseDateLabel">Today</div>
+        <div class="form-grid" style="margin-top:12px">
+          <div class="field-group full">
+            <label for="quickExpenseNote">What did you buy?</label>
+            <input id="quickExpenseNote" maxlength="100" placeholder="Ramen, taxi, ticket…" required />
+          </div>
+          <div class="field-group">
+            <label for="quickExpenseAmount">Amount</label>
+            <input id="quickExpenseAmount" type="number" min="0" step="0.01" inputmode="decimal" required />
+          </div>
+          <div class="field-group">
+            <label for="quickExpenseDate">Date</label>
+            <input id="quickExpenseDate" type="date" required />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn ghost" type="button" data-close="quickExpenseDialog">Cancel</button>
+        <button class="btn" type="submit">Add expense</button>
+      </div>
+    </form>
+  </dialog>
 
   <dialog id="settingsDialog">
     <form class="modal-shell" id="settingsForm" method="dialog">
@@ -1908,6 +2206,8 @@
         github: { ...DEFAULT_GITHUB },
         schedules: [],
         expenses: [],
+        importantPlaces: [],
+        importantTimes: [],
         packing: [],
         selectedBudgetDate: today
       };
@@ -1939,6 +2239,8 @@
         },
         schedules: Array.isArray(value.schedules) ? value.schedules : [],
         expenses: Array.isArray(value.expenses) ? value.expenses : [],
+        importantPlaces: Array.isArray(value.importantPlaces) ? value.importantPlaces : [],
+        importantTimes: Array.isArray(value.importantTimes) ? value.importantTimes : [],
         packing: Array.isArray(value.packing) ? value.packing : [],
         selectedBudgetDate: value.selectedBudgetDate || getLocalISODate()
       };
@@ -2163,6 +2465,52 @@
       }
     }
 
+    function renderImportantPlaces() {
+      const list = $("#importantPlacesList");
+      if (!list) return;
+      const places = [...state.importantPlaces].sort((a, b) => String(a.name || "").localeCompare(String(b.name || "")));
+      if (!places.length) {
+        list.innerHTML = `<div class="empty-inline">No saved addresses yet.</div>`;
+        return;
+      }
+      list.innerHTML = places.map(item => `
+        <article class="memory-item" data-place-id="${escapeHTML(item.id)}">
+          <div class="memory-item-main">
+            <strong class="memory-item-title">${escapeHTML(item.name)}</strong>
+            <div class="memory-item-meta">${locationLink(item.address)}</div>
+            ${item.note ? `<div class="memory-item-note">${escapeHTML(item.note)}</div>` : ""}
+          </div>
+          <div class="memory-item-actions">
+            <button class="small-btn" type="button" data-action="edit-place">Edit</button>
+            <button class="small-btn danger" type="button" data-action="delete-place">Delete</button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderImportantTimes() {
+      const list = $("#importantTimesList");
+      if (!list) return;
+      const times = [...state.importantTimes].sort((a, b) => `${a.date || "9999"} ${a.time || "99:99"}`.localeCompare(`${b.date || "9999"} ${b.time || "99:99"}`));
+      if (!times.length) {
+        list.innerHTML = `<div class="empty-inline">No important times yet.</div>`;
+        return;
+      }
+      list.innerHTML = times.map(item => `
+        <article class="memory-item" data-time-id="${escapeHTML(item.id)}">
+          <div class="memory-item-main">
+            <strong class="memory-item-title">${escapeHTML(item.title)}</strong>
+            <div class="memory-item-meta">${escapeHTML(formatDate(item.date))} · ${escapeHTML(timeLabel(item.time))}</div>
+            ${item.details ? `<div class="memory-item-note">${escapeHTML(item.details)}</div>` : ""}
+          </div>
+          <div class="memory-item-actions">
+            <button class="small-btn" type="button" data-action="edit-time">Edit</button>
+            <button class="small-btn danger" type="button" data-action="delete-time">Delete</button>
+          </div>
+        </article>
+      `).join("");
+    }
+
     function renderPacking() {
       const list = $("#packingList");
       const completed = state.packing.filter(item => item.done).length;
@@ -2194,6 +2542,8 @@
     function renderAll() {
       renderTodaySchedule();
       renderBudget();
+      renderImportantPlaces();
+      renderImportantTimes();
       renderPacking();
       renderTripInfo();
       saveState();
@@ -2551,6 +2901,120 @@
       openDialog($("#expenseDetailsDialog"));
     });
 
+    $("#openQuickExpenseBtn").addEventListener("click", () => {
+      const today = getLocalISODate();
+      $("#quickExpenseForm").reset();
+      $("#quickExpenseDate").value = today;
+      $("#quickExpenseDateLabel").textContent = `Quick entry · ${formatDate(today)}`;
+      openDialog($("#quickExpenseDialog"));
+      setTimeout(() => $("#quickExpenseNote").focus(), 50);
+    });
+
+    $("#quickExpenseDate").addEventListener("change", event => {
+      $("#quickExpenseDateLabel").textContent = `Quick entry · ${formatDate(event.target.value)}`;
+    });
+
+    $("#quickExpenseForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const amount = Number($("#quickExpenseAmount").value);
+      const note = $("#quickExpenseNote").value.trim();
+      const date = $("#quickExpenseDate").value || getLocalISODate();
+      if (!Number.isFinite(amount) || amount <= 0 || !note) return;
+      state.expenses.push({ id: uid("expense"), date, amount, note, createdAt: Date.now() });
+      state.selectedBudgetDate = date;
+      renderAll();
+      closeDialog($("#quickExpenseDialog"));
+      showToast("Expense added");
+      scheduleAutoPublish();
+    });
+
+    $("#importantPlaceForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const id = $("#importantPlaceId").value;
+      const name = $("#importantPlaceName").value.trim();
+      const address = $("#importantPlaceAddress").value.trim();
+      const note = $("#importantPlaceNote").value.trim();
+      if (!name || !address) return;
+      const payload = { id: id || uid("place"), name, address, note };
+      const index = state.importantPlaces.findIndex(item => item.id === id);
+      if (index >= 0) state.importantPlaces[index] = payload;
+      else state.importantPlaces.push(payload);
+      $("#importantPlaceForm").reset();
+      $("#importantPlaceId").value = "";
+      $("#importantPlaceSubmitBtn").textContent = "Add";
+      renderAll();
+      showToast(id ? "Address updated" : "Address added");
+      scheduleAutoPublish();
+      setTimeout(() => $("#importantPlaceName").focus(), 30);
+    });
+
+    $("#importantPlacesList").addEventListener("click", event => {
+      const row = event.target.closest("[data-place-id]");
+      if (!row) return;
+      const item = state.importantPlaces.find(entry => entry.id === row.dataset.placeId);
+      if (!item) return;
+      if (event.target.dataset.action === "edit-place") {
+        $("#importantPlaceId").value = item.id;
+        $("#importantPlaceName").value = item.name;
+        $("#importantPlaceAddress").value = item.address;
+        $("#importantPlaceNote").value = item.note || "";
+        $("#importantPlaceSubmitBtn").textContent = "Save";
+        $("#importantPlaceName").focus();
+      }
+      if (event.target.dataset.action === "delete-place") {
+        if (!confirm(`Delete “${item.name}”?`)) return;
+        state.importantPlaces = state.importantPlaces.filter(entry => entry.id !== item.id);
+        renderAll();
+        showToast("Address deleted");
+        scheduleAutoPublish();
+      }
+    });
+
+    $("#importantTimeForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const id = $("#importantTimeId").value;
+      const title = $("#importantTimeTitle").value.trim();
+      const date = $("#importantTimeDate").value;
+      const time = $("#importantTimeClock").value;
+      const details = $("#importantTimeDetails").value.trim();
+      if (!title || !date || !time) return;
+      const payload = { id: id || uid("time"), title, date, time, details };
+      const index = state.importantTimes.findIndex(item => item.id === id);
+      if (index >= 0) state.importantTimes[index] = payload;
+      else state.importantTimes.push(payload);
+      $("#importantTimeForm").reset();
+      $("#importantTimeId").value = "";
+      $("#importantTimeDate").value = getLocalISODate();
+      $("#importantTimeSubmitBtn").textContent = "Add";
+      renderAll();
+      showToast(id ? "Important time updated" : "Important time added");
+      scheduleAutoPublish();
+      setTimeout(() => $("#importantTimeTitle").focus(), 30);
+    });
+
+    $("#importantTimesList").addEventListener("click", event => {
+      const row = event.target.closest("[data-time-id]");
+      if (!row) return;
+      const item = state.importantTimes.find(entry => entry.id === row.dataset.timeId);
+      if (!item) return;
+      if (event.target.dataset.action === "edit-time") {
+        $("#importantTimeId").value = item.id;
+        $("#importantTimeTitle").value = item.title;
+        $("#importantTimeDate").value = item.date;
+        $("#importantTimeClock").value = item.time;
+        $("#importantTimeDetails").value = item.details || "";
+        $("#importantTimeSubmitBtn").textContent = "Save";
+        $("#importantTimeTitle").focus();
+      }
+      if (event.target.dataset.action === "delete-time") {
+        if (!confirm(`Delete “${item.title}”?`)) return;
+        state.importantTimes = state.importantTimes.filter(entry => entry.id !== item.id);
+        renderAll();
+        showToast("Important time deleted");
+        scheduleAutoPublish();
+      }
+    });
+
     $("#packingForm").addEventListener("submit", event => {
       event.preventDefault();
       const input = $("#packingInput");
@@ -2817,6 +3281,7 @@
 
     const savedTab = localStorage.getItem(TAB_STORAGE_KEY);
     activateTab(savedTab || "todoPanel", false);
+    $("#importantTimeDate").value = getLocalISODate();
 
     renderAll();
     if (getStoredGitHubToken()) setSyncStatus("local", "Ready · changes auto-publish");
