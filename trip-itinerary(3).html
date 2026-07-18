@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f8fb" />
+  <title>Trip Itinerary</title>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #697386;
+      --line: #e7eaf0;
+      --primary: #4258d0;
+      --primary-soft: #eef0ff;
+      --success: #1d8c65;
+      --success-soft: #eaf8f2;
+      --danger: #c43b45;
+      --danger-soft: #fff0f1;
+      --warning: #9a6500;
+      --warning-soft: #fff6df;
+      --shadow: 0 14px 40px rgba(28, 39, 71, 0.08);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(97, 116, 255, 0.10), transparent 30%),
+        linear-gradient(180deg, #fafbff 0%, var(--bg) 360px);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+
+    .app-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.75);
+      border-radius: 30px;
+      background: linear-gradient(135deg, #25317d 0%, #4258d0 56%, #6f7eea 100%);
+      box-shadow: 0 18px 50px rgba(47, 63, 159, 0.24);
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      top: -90px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+    }
+
+    .hero-top,
+    .hero-meta,
+    .section-header,
+    .budget-stats,
+    .day-nav,
+    .modal-header,
+    .action-row,
+    .tool-row {
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-top {
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 4px;
+      font-size: clamp(1.75rem, 4vw, 2.55rem);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    .destination {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      font-weight: 650;
+    }
+
+    .hero-meta {
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pill {
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      font-size: 0.86rem;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
+
+    .icon-btn,
+    .btn,
+    .small-btn {
+      border: 0;
+      border-radius: 12px;
+      font-weight: 800;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .icon-btn:hover,
+    .btn:hover,
+    .small-btn:hover { transform: translateY(-1px); }
+
+    .icon-btn {
+      width: 44px;
+      height: 44px;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.20);
+      font-size: 1.08rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+      gap: 22px;
+      margin-top: 22px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(216, 221, 232, 0.86);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .section-card { padding: 24px; }
+
+    .section-header {
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title-wrap { min-width: 0; }
+
+    .section-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--primary);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      letter-spacing: -0.025em;
+    }
+
+    .subtle {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      min-height: 44px;
+      padding: 10px 15px;
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 8px 18px rgba(66, 88, 208, 0.22);
+    }
+
+    .btn.secondary {
+      background: var(--primary-soft);
+      color: var(--primary);
+      box-shadow: none;
+    }
+
+    .btn.ghost {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .btn.danger {
+      background: var(--danger-soft);
+      color: var(--danger);
+      box-shadow: none;
+    }
+
+    .btn.full { width: 100%; }
+
+    .small-btn {
+      padding: 8px 10px;
+      background: #f5f6fa;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .small-btn.danger { color: var(--danger); background: var(--danger-soft); }
+
+    .header-actions,
+    .inline-actions,
+    .modal-actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .progress-wrap {
+      padding: 14px 15px;
+      margin-bottom: 16px;
+      border-radius: var(--radius-md);
+      background: #f8f9fc;
+      border: 1px solid var(--line);
+    }
+
+    .progress-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .progress-track {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e8ebf2;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), #7f8cf1);
+      transition: width 0.25s ease;
+    }
+
+    .schedule-list,
+    .expense-list,
+    .packing-list,
+    .full-schedule-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .schedule-item {
+      display: grid;
+      grid-template-columns: auto 72px minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: start;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: white;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .schedule-item.done {
+      background: #fafbfc;
+      border-color: #edf0f4;
+    }
+
+    .schedule-item.done .activity-title {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    .check-control {
+      display: grid;
+      place-items: center;
+      margin-top: 1px;
+    }
+
+    .check-control input {
+      width: 21px;
+      height: 21px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .time-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .activity-title {
+      margin: 0;
+      font-weight: 850;
+      letter-spacing: -0.01em;
+      overflow-wrap: anywhere;
+    }
+
+    .activity-meta,
+    .activity-note {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      overflow-wrap: anywhere;
+    }
+
+    .activity-meta a {
+      color: var(--primary);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .kebab {
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 10px;
+      background: #f6f7fa;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .item-menu {
+      position: relative;
+    }
+
+    .item-menu-popover {
+      position: absolute;
+      z-index: 20;
+      top: 38px;
+      right: 0;
+      min-width: 118px;
+      padding: 6px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 12px 30px rgba(25, 35, 68, 0.14);
+    }
+
+    .item-menu-popover button {
+      width: 100%;
+      padding: 9px 10px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      text-align: left;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .item-menu-popover button:hover { background: #f5f6fa; }
+    .item-menu-popover button.danger { color: var(--danger); }
+
+    .empty-state {
+      padding: 34px 20px;
+      border: 1px dashed #d7dce7;
+      border-radius: var(--radius-lg);
+      background: #fbfcfe;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-state .empty-icon {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 2rem;
+    }
+
+    .empty-state strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .remaining-card {
+      padding: 18px;
+      margin-bottom: 14px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--success-soft), #f5fffb);
+      border: 1px solid #d8eee5;
+    }
+
+    .remaining-card.over {
+      background: linear-gradient(135deg, var(--danger-soft), #fff8f8);
+      border-color: #f1d4d8;
+    }
+
+    .remaining-label {
+      display: block;
+      color: var(--success);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .remaining-card.over .remaining-label { color: var(--danger); }
+
+    .remaining-value {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(1.9rem, 5vw, 2.55rem);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      font-weight: 950;
+    }
+
+    .budget-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-bottom: 16px;
+    }
+
+    .stat {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fafbfc;
+      min-width: 0;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.98rem;
+      overflow-wrap: anywhere;
+    }
+
+    .day-nav {
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #f8f9fb;
+    }
+
+    .day-nav button {
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 10px;
+      background: white;
+      color: var(--text);
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(31, 41, 73, 0.06);
+    }
+
+    .day-label {
+      min-width: 0;
+      text-align: center;
+    }
+
+    .day-label strong,
+    .day-label span { display: block; }
+    .day-label span { color: var(--muted); font-size: 0.78rem; }
+
+    .expense-form {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr) auto;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    .field,
+    .field-group input,
+    .field-group textarea,
+    .field-group select,
+    .toolbar-input {
+      width: 100%;
+      border: 1px solid #dfe3eb;
+      border-radius: 12px;
+      background: white;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .field,
+    .toolbar-input { min-height: 44px; padding: 10px 12px; }
+
+    .field:focus,
+    .field-group input:focus,
+    .field-group textarea:focus,
+    .field-group select:focus,
+    .toolbar-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(66, 88, 208, 0.10);
+    }
+
+    .expense-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .expense-note {
+      min-width: 0;
+      font-weight: 750;
+      overflow-wrap: anywhere;
+    }
+
+    .expense-note small {
+      display: block;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .expense-amount {
+      color: var(--danger);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .section-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 14px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .packing-input {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 9px;
+      margin-bottom: 12px;
+    }
+
+    .packing-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 11px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .packing-item input { width: 18px; height: 18px; accent-color: var(--primary); }
+    .packing-item.done span { color: var(--muted); text-decoration: line-through; }
+
+    .trip-note {
+      min-height: 90px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fafbfc;
+      color: var(--muted);
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr);
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .info-row span:first-child { color: var(--muted); font-weight: 700; }
+    .info-row span:last-child { font-weight: 750; overflow-wrap: anywhere; }
+
+    .tool-row {
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    dialog {
+      width: min(680px, calc(100% - 28px));
+      max-height: min(88vh, 900px);
+      padding: 0;
+      border: 0;
+      border-radius: 24px;
+      background: white;
+      color: var(--text);
+      box-shadow: 0 28px 80px rgba(18, 27, 54, 0.28);
+    }
+
+    dialog.wide { width: min(920px, calc(100% - 28px)); }
+    dialog::backdrop { background: rgba(18, 25, 44, 0.54); backdrop-filter: blur(4px); }
+
+    .modal-shell {
+      display: flex;
+      flex-direction: column;
+      max-height: min(88vh, 900px);
+    }
+
+    .modal-header {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-header h2 { margin: 0; font-size: 1.25rem; }
+
+    .close-btn {
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 11px;
+      background: #f4f5f8;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .modal-body {
+      overflow: auto;
+      padding: 22px;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 16px 22px 20px;
+      border-top: 1px solid var(--line);
+      background: white;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field-group { display: grid; gap: 7px; }
+    .field-group.full { grid-column: 1 / -1; }
+
+    .field-group label {
+      color: #485166;
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .field-group input,
+    .field-group select { min-height: 46px; padding: 10px 12px; }
+    .field-group textarea { min-height: 96px; padding: 11px 12px; resize: vertical; }
+
+    .help-text { color: var(--muted); font-size: 0.76rem; }
+
+    .full-toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .date-group {
+      margin-bottom: 22px;
+    }
+
+    .date-group:last-child { margin-bottom: 0; }
+
+    .date-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .date-heading h3 { margin: 0; font-size: 1rem; }
+    .date-heading span { color: var(--muted); font-size: 0.8rem; }
+
+    .full-item {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: start;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .full-item + .full-item { margin-top: 9px; }
+
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .detail-table th,
+    .detail-table td {
+      padding: 11px 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .detail-table th {
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .detail-table .number { text-align: right; white-space: nowrap; }
+
+    .detail-total {
+      display: flex;
+      justify-content: flex-end;
+      gap: 18px;
+      margin-top: 14px;
+      font-weight: 900;
+    }
+
+    .notice {
+      padding: 11px 12px;
+      border-radius: 12px;
+      background: var(--warning-soft);
+      color: var(--warning);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 100;
+      left: 50%;
+      bottom: calc(22px + env(safe-area-inset-bottom));
+      transform: translate(-50%, 22px);
+      max-width: calc(100% - 32px);
+      padding: 11px 15px;
+      border-radius: 999px;
+      background: #182033;
+      color: white;
+      font-size: 0.86rem;
+      font-weight: 750;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 12px 30px rgba(10, 15, 31, 0.26);
+    }
+
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    @media (max-width: 860px) {
+      .grid, .tools-grid { grid-template-columns: 1fr; }
+      .budget-card { order: 2; }
+    }
+
+    @media (max-width: 620px) {
+      .app-shell { width: min(100% - 20px, 1120px); padding-top: 10px; }
+      .hero { padding: 22px 18px; border-radius: 22px; }
+      .hero-top { align-items: flex-start; }
+      .hero-meta { margin-top: 18px; }
+      .section-card { padding: 18px 15px; }
+      .section-header { align-items: flex-start; }
+      .header-actions { justify-content: flex-end; }
+      .schedule-item { grid-template-columns: auto 60px minmax(0,1fr); padding: 13px 11px; }
+      .schedule-item .item-menu { grid-column: 3; justify-self: end; margin-top: -4px; }
+      .budget-stats { grid-template-columns: 1fr 1fr; }
+      .budget-stats .stat:first-child { grid-column: 1 / -1; }
+      .expense-form { grid-template-columns: 110px minmax(0, 1fr); }
+      .expense-form .btn { grid-column: 1 / -1; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field-group.full { grid-column: auto; }
+      .full-toolbar { grid-template-columns: 1fr; }
+      .full-item { grid-template-columns: 60px minmax(0,1fr); }
+      .full-item .inline-actions { grid-column: 2; }
+      .detail-table th:nth-child(1),
+      .detail-table td:nth-child(1) { display: none; }
+      .info-row { grid-template-columns: 90px minmax(0, 1fr); }
+      dialog {
+        width: 100%;
+        max-width: none;
+        max-height: 92vh;
+        margin: auto 0 0;
+        border-radius: 24px 24px 0 0;
+      }
+      dialog.wide { width: 100%; }
+      .modal-shell { max-height: 92vh; }
+      .modal-header, .modal-body, .modal-footer { padding-left: 16px; padding-right: 16px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .app-shell { width: 100%; padding: 0; }
+      .hero { box-shadow: none; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .grid, .tools-grid { grid-template-columns: 1fr; }
+      .card { box-shadow: none; break-inside: avoid; }
+      button, .expense-form, .packing-input, .item-menu, .tool-row { display: none !important; }
+    }
+  
+
+    /* Y2K notebook theme */
+    :root {
+      --bg: #f5eedc;
+      --card: #fffdf7;
+      --text: #202a44;
+      --muted: #66708a;
+      --line: #aab7cf;
+      --primary: #3768d8;
+      --primary-soft: #dce9ff;
+      --success: #35745d;
+      --success-soft: #e1f1df;
+      --danger: #ce4057;
+      --danger-soft: #ffe0e4;
+      --warning: #7f5f00;
+      --warning-soft: #fff0ad;
+      --shadow: 6px 6px 0 #202a44;
+      --radius-xl: 7px;
+      --radius-lg: 5px;
+      --radius-md: 5px;
+      --radius-sm: 4px;
+    }
+
+    body {
+      background-color: #f6f0dd;
+      background-image:
+        linear-gradient(90deg, transparent 0 52px, rgba(229, 95, 115, 0.30) 52px 54px, transparent 54px),
+        repeating-linear-gradient(180deg, transparent 0 27px, rgba(85, 143, 197, 0.16) 27px 28px);
+      font-family: "Trebuchet MS", "Segoe UI", "Noto Sans", Arial, sans-serif;
+    }
+
+    .app-shell {
+      position: relative;
+      width: min(1040px, calc(100% - 34px));
+      padding-top: 54px;
+    }
+
+    .site-settings-btn {
+      position: absolute;
+      top: 8px;
+      right: 0;
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0;
+      border: 1.5px solid #6f7b97;
+      border-radius: 4px;
+      background: rgba(255, 253, 247, 0.82);
+      color: #53607d;
+      box-shadow: none;
+      opacity: 0.78;
+      transition: opacity 0.18s ease, background 0.18s ease, transform 0.18s ease;
+      z-index: 5;
+    }
+
+    .site-settings-btn:hover,
+    .site-settings-btn:focus-visible {
+      opacity: 1;
+      background: #fffdf7;
+      transform: rotate(-4deg);
+      box-shadow: none;
+    }
+
+    .site-settings-btn svg {
+      width: 17px;
+      height: 17px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 0;
+    }
+
+    .card {
+      position: relative;
+      overflow: visible;
+      border: 2px solid var(--text);
+      border-radius: 7px;
+      box-shadow: var(--shadow);
+      background: rgba(255, 253, 247, 0.97);
+    }
+
+    .today-card::before {
+      content: "✦ TODAY ✦";
+      position: absolute;
+      top: -14px;
+      left: 22px;
+      padding: 3px 11px;
+      border: 2px solid var(--text);
+      background: #ffef88;
+      color: var(--text);
+      font-size: 0.72rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      transform: rotate(-1.5deg);
+    }
+
+    .section-card { padding: 25px; }
+    .section-header { border-bottom: 2px dashed #b7bfd0; padding-bottom: 15px; }
+    .section-header h2 { font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif; font-size: 1.38rem; letter-spacing: 0; }
+    .section-label { color: #7658b7; }
+
+    .btn, .small-btn, .icon-btn, .close-btn, .kebab {
+      border-radius: 4px;
+      border: 2px solid var(--text);
+      box-shadow: 3px 3px 0 var(--text);
+    }
+
+    .btn {
+      background: #78c8ff;
+      color: #17223c;
+    }
+    .btn.secondary { background: #e3d1ff; color: #202a44; }
+    .btn.ghost { background: #fffdf7; color: #202a44; border: 2px solid var(--text); }
+    .btn.danger { background: #ffc5ce; color: #8b2434; }
+    .github-btn { background: #b8f09d; color: #183819; }
+    .small-btn { background: #f4ebd7; color: var(--text); }
+    .small-btn.danger { background: #ffd7dc; color: #9d2d40; }
+
+    .btn:hover, .small-btn:hover, .icon-btn:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0 var(--text);
+    }
+    .btn:active, .small-btn:active { transform: translate(3px, 3px); box-shadow: none; }
+
+    .progress-wrap, .day-nav, .remaining-card, .stat, .schedule-item, .expense-item,
+    .packing-item, .trip-note, .empty-state, .field, .field-group input,
+    .field-group textarea, .field-group select, .toolbar-input, dialog,
+    .item-menu-popover, .full-item, .notice {
+      border-radius: 4px;
+    }
+
+    .progress-wrap { background: #f4f0ff; border: 1px dashed #7986a6; }
+    .progress-track { border-radius: 2px; border: 1px solid #65708b; background: white; }
+    .progress-bar { border-radius: 0; background: repeating-linear-gradient(135deg, #4b7ce8 0 7px, #9ec5ff 7px 14px); }
+
+    .schedule-item, .expense-item, .packing-item, .full-item {
+      border: 1.5px solid #6f7b97;
+      background: #fffdf7;
+    }
+    .schedule-item:nth-child(odd) { background: #fffaf0; }
+    .time-pill { border-radius: 3px; border: 1px solid #3768d8; background: #dce9ff; }
+    .kebab { box-shadow: none; background: #f6efde; }
+    .item-menu-popover { border: 2px solid var(--text); box-shadow: 4px 4px 0 var(--text); }
+
+    .remaining-card {
+      background: #fff4a8;
+      border: 2px solid var(--text);
+      box-shadow: 3px 3px 0 #e3b82f;
+    }
+    .remaining-card.over { background: #ffd9df; border-color: var(--text); }
+
+    .budget-stats { gap: 10px; }
+    .stat { border: 2px solid var(--text); background: #f8f2df; }
+    .stat.spent-today { background: #dceaff; color: #164aa4; }
+    .stat.spent-today span, .stat.spent-today strong { color: #164aa4; }
+    .stat.spent-overall { background: #ffe0e5; color: #b32842; }
+    .stat.spent-overall span, .stat.spent-overall strong { color: #b32842; }
+
+    .day-nav { border: 2px solid var(--text); background: #f3e8ff; }
+    .day-nav button { border: 1.5px solid var(--text); border-radius: 3px; box-shadow: 2px 2px 0 var(--text); }
+
+    .field, .field-group input, .field-group textarea, .field-group select, .toolbar-input {
+      border: 1.5px solid #65708b;
+      background: #fffef9;
+    }
+    .field:focus, .field-group input:focus, .field-group textarea:focus,
+    .field-group select:focus, .toolbar-input:focus {
+      border-color: #3768d8;
+      box-shadow: 3px 3px 0 #b8d0ff;
+    }
+
+    .tools-grid { margin-top: 26px; }
+    .contact-info-list { border-top: 1px dashed #9aa6be; padding-top: 14px; }
+    .info-row { padding: 8px 0; border-bottom: 1px dashed #c5cada; }
+    .other-details-wrap { margin-top: 18px; }
+    .other-details-wrap > strong { display: block; margin-bottom: 7px; }
+    .trip-note { background: #fff8c7; border: 1.5px solid #82794d; }
+
+    dialog { border: 2px solid var(--text); box-shadow: 8px 8px 0 var(--text); }
+    .modal-header, .modal-footer { background: #fff9e9; border-color: #9ea8bd; }
+    dialog::backdrop { background: rgba(30, 38, 61, 0.48); backdrop-filter: none; }
+    .toast { border: 2px solid white; border-radius: 4px; box-shadow: 4px 4px 0 #202a44; }
+
+    @media (max-width: 620px) {
+      body {
+        background-image:
+          linear-gradient(90deg, transparent 0 18px, rgba(229, 95, 115, 0.26) 18px 20px, transparent 20px),
+          repeating-linear-gradient(180deg, transparent 0 27px, rgba(85, 143, 197, 0.14) 27px 28px);
+      }
+      .app-shell { width: min(100% - 22px, 1040px); padding-top: 51px; }
+      .site-settings-btn { top: 8px; right: 1px; }
+      .section-card { padding: 20px 14px; }
+      .header-actions { width: 100%; justify-content: flex-start; }
+      .header-actions .btn { flex: 1 1 auto; }
+      .budget-stats { grid-template-columns: 1fr 1fr; }
+      .budget-stats .stat:first-child { grid-column: 1 / -1; }
+      .today-card::before { left: 12px; }
+      .info-row { grid-template-columns: 96px minmax(0, 1fr); }
+      dialog { border-radius: 7px 7px 0 0; box-shadow: 0 -5px 0 var(--text); }
+    }
+
+    /* Flat notebook sections + GitHub update status */
+    .card {
+      border: 1.5px solid #6f7b97;
+      box-shadow: none !important;
+    }
+
+    .remaining-card,
+    .progress-wrap,
+    .day-nav,
+    .stat,
+    .schedule-item,
+    .expense-item,
+    .packing-item,
+    .trip-note,
+    .empty-state,
+    .full-item {
+      box-shadow: none !important;
+    }
+
+    .today-card::before { border-width: 1.5px; }
+
+    .sync-status {
+      position: absolute;
+      top: 9px;
+      left: 0;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: calc(100% - 54px);
+      padding: 6px 10px;
+      border: 1.5px solid #8b95aa;
+      border-radius: 4px;
+      background: rgba(255, 253, 247, 0.88);
+      color: #53607d;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.2;
+      z-index: 5;
+    }
+
+    .sync-status-dot {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #7d879c;
+    }
+
+    .sync-status[data-state="publishing"] {
+      border-color: #4d79c7;
+      color: #2457a8;
+      background: #e8f1ff;
+    }
+
+    .sync-status[data-state="publishing"] .sync-status-dot {
+      background: #3d74d8;
+      animation: syncPulse 0.9s ease-in-out infinite alternate;
+    }
+
+    .sync-status[data-state="success"] {
+      border-color: #5c9271;
+      color: #276444;
+      background: #e9f6eb;
+    }
+    .sync-status[data-state="success"] .sync-status-dot { background: #31845a; }
+
+    .sync-status[data-state="warning"] {
+      border-color: #b3943f;
+      color: #765b0a;
+      background: #fff4c8;
+    }
+    .sync-status[data-state="warning"] .sync-status-dot { background: #c18b12; }
+
+    .sync-status[data-state="error"] {
+      border-color: #c06673;
+      color: #9f2f43;
+      background: #ffe7eb;
+    }
+    .sync-status[data-state="error"] .sync-status-dot { background: #c93f58; }
+
+    @keyframes syncPulse {
+      from { opacity: 0.35; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 620px) {
+      .sync-status {
+        top: 9px;
+        left: 1px;
+        max-width: calc(100% - 48px);
+        font-size: 0.72rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <main class="app-shell">
+    <div class="sync-status" id="syncStatus" data-state="local" role="status" aria-live="polite">
+      <span class="sync-status-dot" aria-hidden="true"></span>
+      <span id="syncStatusText">Saved locally</span>
+    </div>
+    <button class="site-settings-btn" id="openSettingsBtn" type="button" aria-label="Edit trip settings" title="Edit trip settings">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
+      </svg>
+    </button>
+    <div class="grid">
+      <section class="card section-card today-card" aria-labelledby="todayScheduleTitle">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2 id="todayScheduleTitle">To-do</h2>
+            <div class="subtle" id="todayDateLabel"></div>
+          </div>
+          <div class="header-actions">
+            <button class="btn secondary" id="addScheduleBtn" type="button">＋ Add</button>
+            <button class="btn" id="seeFullScheduleBtn" type="button">See full schedule</button>
+          </div>
+        </div>
+
+        <div class="progress-wrap" id="scheduleProgressWrap">
+          <div class="progress-copy">
+            <span id="scheduleProgressText">0 of 0 completed</span>
+            <span id="scheduleProgressPercent">0%</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-bar" id="scheduleProgressBar"></div>
+          </div>
+        </div>
+
+        <div class="schedule-list" id="todayScheduleList"></div>
+      </section>
+
+      <section class="card section-card budget-card" aria-labelledby="budgetTitle">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2 id="budgetTitle">Budget</h2>
+            <div class="subtle">Daily entries, one trip total</div>
+          </div>
+          <button class="btn ghost" id="quickBudgetSettingsBtn" type="button">Edit budget</button>
+        </div>
+
+        <div class="remaining-card" id="remainingCard">
+          <span class="remaining-label" id="remainingLabel">Remaining</span>
+          <strong class="remaining-value" id="remainingValue">—</strong>
+        </div>
+
+        <div class="budget-stats">
+          <div class="stat total-budget"><span>Total budget</span><strong id="totalBudgetValue">—</strong></div>
+          <div class="stat spent-today"><span>Spent today</span><strong id="spentDayValue">—</strong></div>
+          <div class="stat spent-overall"><span>Spent overall</span><strong id="spentOverallValue">—</strong></div>
+        </div>
+
+        <div class="day-nav" aria-label="Select budget day">
+          <button id="previousBudgetDayBtn" type="button" aria-label="Previous day">‹</button>
+          <div class="day-label">
+            <strong id="budgetDayTitle">Today</strong>
+            <span id="budgetDayDate"></span>
+          </div>
+          <button id="nextBudgetDayBtn" type="button" aria-label="Next day">›</button>
+        </div>
+
+        <form class="expense-form" id="expenseForm">
+          <label class="visually-hidden" for="expenseAmount">Amount used</label>
+          <input class="field" id="expenseAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Amount" required />
+          <label class="visually-hidden" for="expenseNote">Expense note</label>
+          <input class="field" id="expenseNote" type="text" maxlength="100" placeholder="Note, e.g. ramen" required />
+          <button class="btn" type="submit">Add expense</button>
+        </form>
+
+        <div class="expense-list" id="dailyExpenseList"></div>
+        <div class="section-footer">
+          <button class="btn secondary" id="seeExpenseDetailsBtn" type="button">See details · all days</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="tools-grid">
+      <section class="card section-card" aria-labelledby="packingTitle">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-label">Trip essentials</span>
+            <h2 id="packingTitle">Packing checklist</h2>
+          </div>
+          <span class="subtle" id="packingProgress">0 / 0</span>
+        </div>
+        <form class="packing-input" id="packingForm">
+          <label class="visually-hidden" for="packingInput">Packing item</label>
+          <input class="field" id="packingInput" maxlength="80" placeholder="Add passport, charger, medicine…" required />
+          <button class="btn secondary" type="submit">Add</button>
+        </form>
+        <div class="packing-list" id="packingList"></div>
+      </section>
+
+      <section class="card section-card" aria-labelledby="tripInfoTitle">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-label">Useful information</span>
+            <h2 id="tripInfoTitle">Room & contact notes</h2>
+          </div>
+          <button class="btn ghost" id="editDetailsBtn" type="button">Edit details</button>
+        </div>
+        <div class="info-list contact-info-list">
+          <div class="info-row"><span>Room address</span><span id="roomAddressDisplay">Not added</span></div>
+          <div class="info-row"><span id="phone1Label">Phone 1</span><span id="phone1Display">Not added</span></div>
+          <div class="info-row"><span id="phone2Label">Phone 2</span><span id="phone2Display">Not added</span></div>
+        </div>
+        <div class="other-details-wrap">
+          <strong>Other details</strong>
+          <div class="trip-note" id="otherDetailsDisplay">No other details yet.</div>
+        </div>
+        <div class="tool-row">
+          <button class="btn ghost" id="printBtn" type="button">Print</button>
+          <button class="btn ghost" id="exportBtn" type="button">Export data</button>
+          <button class="btn ghost" id="importBtn" type="button">Import data</button>
+          <button class="btn github-btn" id="openGitHubBtn" type="button">Publish data.json</button>
+          <input class="visually-hidden" id="importFile" type="file" accept="application/json,.json" />
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form class="modal-shell" id="settingsForm" method="dialog">
+      <div class="modal-header">
+        <div>
+          <span class="section-label">Trip setup</span>
+          <h2>Settings</h2>
+        </div>
+        <button class="close-btn" type="button" data-close="settingsDialog" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="settingStartDate">Start date</label>
+            <input id="settingStartDate" type="date" required />
+          </div>
+          <div class="field-group">
+            <label for="settingEndDate">End date</label>
+            <input id="settingEndDate" type="date" required />
+          </div>
+          <div class="field-group">
+            <label for="settingBudget">Total trip budget</label>
+            <input id="settingBudget" type="number" min="0" step="0.01" inputmode="decimal" />
+          </div>
+          <div class="field-group">
+            <label for="settingCurrency">Currency</label>
+            <select id="settingCurrency">
+              <option value="THB">THB · Thai baht</option>
+              <option value="VND">VND · Vietnamese đồng</option>
+              <option value="USD">USD · US dollar</option>
+              <option value="KRW">KRW · Korean won</option>
+              <option value="JPY">JPY · Japanese yen</option>
+              <option value="EUR">EUR · Euro</option>
+              <option value="SGD">SGD · Singapore dollar</option>
+              <option value="MYR">MYR · Malaysian ringgit</option>
+              <option value="GBP">GBP · British pound</option>
+              <option value="AUD">AUD · Australian dollar</option>
+            </select>
+            <span class="help-text">Changing the currency changes the display only; it does not convert existing amounts.</span>
+          </div>
+          <div class="field-group full">
+            <label for="settingRoomAddress">Room address</label>
+            <input id="settingRoomAddress" maxlength="220" placeholder="Hotel, room number, building, and address" />
+          </div>
+          <div class="field-group">
+            <label for="settingPhone1Name">Phone 1 name</label>
+            <input id="settingPhone1Name" maxlength="60" placeholder="Hotel reception" />
+          </div>
+          <div class="field-group">
+            <label for="settingPhone1Number">Phone 1 number</label>
+            <input id="settingPhone1Number" type="tel" maxlength="40" placeholder="+66 ..." />
+          </div>
+          <div class="field-group">
+            <label for="settingPhone2Name">Phone 2 name</label>
+            <input id="settingPhone2Name" maxlength="60" placeholder="Tour guide" />
+          </div>
+          <div class="field-group">
+            <label for="settingPhone2Number">Phone 2 number</label>
+            <input id="settingPhone2Number" type="tel" maxlength="40" placeholder="+66 ..." />
+          </div>
+          <div class="field-group full">
+            <label for="settingOtherDetails">Other details</label>
+            <textarea id="settingOtherDetails" maxlength="1800" placeholder="Wi-Fi, check-in instructions, booking numbers, transport notes, reminders…"></textarea>
+          </div>
+          <div class="field-group full">
+            <div class="notice">All information is saved locally in this browser. Use Export data to make a backup.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn danger" id="clearAllDataBtn" type="button">Clear all data</button>
+        <button class="btn ghost" type="button" data-close="settingsDialog">Cancel</button>
+        <button class="btn" type="submit">Save settings</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="scheduleDialog">
+    <form class="modal-shell" id="scheduleForm" method="dialog">
+      <div class="modal-header">
+        <div>
+          <span class="section-label">Schedule item</span>
+          <h2 id="scheduleDialogTitle">Add activity</h2>
+        </div>
+        <button class="close-btn" type="button" data-close="scheduleDialog" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="scheduleId" />
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="scheduleDate">Date</label>
+            <input id="scheduleDate" type="date" required />
+          </div>
+          <div class="field-group">
+            <label for="scheduleTime">Time</label>
+            <input id="scheduleTime" type="time" required />
+          </div>
+          <div class="field-group full">
+            <label for="scheduleActivity">Activity</label>
+            <input id="scheduleActivity" maxlength="120" placeholder="Visit the Grand Palace" required />
+          </div>
+          <div class="field-group full">
+            <label for="scheduleLocation">Location</label>
+            <input id="scheduleLocation" maxlength="180" placeholder="Place name or address" />
+          </div>
+          <div class="field-group full">
+            <label for="scheduleNote">Note</label>
+            <textarea id="scheduleNote" maxlength="600" placeholder="Booking details, dress code, tickets, what to bring…"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn ghost" type="button" data-close="scheduleDialog">Cancel</button>
+        <button class="btn" type="submit">Save activity</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="wide" id="fullScheduleDialog">
+    <div class="modal-shell">
+      <div class="modal-header">
+        <div>
+          <span class="section-label">Complete itinerary</span>
+          <h2>Full schedule</h2>
+        </div>
+        <button class="close-btn" type="button" data-close="fullScheduleDialog" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="full-toolbar">
+          <input class="toolbar-input" id="scheduleSearchInput" type="search" placeholder="Search activity, location, or note…" />
+          <button class="btn" id="addScheduleFromFullBtn" type="button">＋ Add activity</button>
+        </div>
+        <div class="full-schedule-list" id="fullScheduleList"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="expenseEditDialog">
+    <form class="modal-shell" id="expenseEditForm" method="dialog">
+      <div class="modal-header">
+        <div>
+          <span class="section-label">Budget entry</span>
+          <h2>Edit expense</h2>
+        </div>
+        <button class="close-btn" type="button" data-close="expenseEditDialog" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <input id="expenseEditId" type="hidden" />
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="expenseEditDate">Date</label>
+            <input id="expenseEditDate" type="date" required />
+          </div>
+          <div class="field-group">
+            <label for="expenseEditAmount">Amount</label>
+            <input id="expenseEditAmount" type="number" min="0" step="0.01" inputmode="decimal" required />
+          </div>
+          <div class="field-group full">
+            <label for="expenseEditNote">Note</label>
+            <input id="expenseEditNote" maxlength="100" required />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn ghost" type="button" data-close="expenseEditDialog">Cancel</button>
+        <button class="btn" type="submit">Save expense</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="wide" id="expenseDetailsDialog">
+    <div class="modal-shell">
+      <div class="modal-header">
+        <div>
+          <span class="section-label">All recorded spending</span>
+          <h2>Budget details</h2>
+        </div>
+        <button class="close-btn" type="button" data-close="expenseDetailsDialog" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="expenseDetailsContent"></div>
+      </div>
+    </div>
+  </dialog>
+
+
+  <dialog id="githubDialog">
+    <form class="modal-shell" id="githubForm" method="dialog">
+      <div class="modal-header">
+        <div>
+          <span class="section-label">GitHub sync</span>
+          <h2>Publish data.json</h2>
+        </div>
+        <button class="close-btn" type="button" data-close="githubDialog" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="githubOwner">GitHub username / owner</label>
+            <input id="githubOwner" autocomplete="username" placeholder="your-username" required />
+          </div>
+          <div class="field-group">
+            <label for="githubRepo">Repository</label>
+            <input id="githubRepo" placeholder="trip-itinerary" required />
+          </div>
+          <div class="field-group">
+            <label for="githubBranch">Branch</label>
+            <input id="githubBranch" value="main" required />
+          </div>
+          <div class="field-group">
+            <label for="githubPath">File path</label>
+            <input id="githubPath" value="data.json" required />
+          </div>
+          <div class="field-group full">
+            <label for="githubToken">Personal access token</label>
+            <input id="githubToken" type="password" autocomplete="off" placeholder="github_pat_..." required />
+            <span class="help-text">Use a fine-grained token with Contents read/write access for this repository. The last token is saved only in this browser so future changes can publish automatically.</span>
+          </div>
+          <div class="field-group full">
+            <div class="notice">Publishing creates or updates the selected <strong>data.json</strong> file with your current schedule, expenses, packing list, and trip details.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn ghost" type="button" data-close="githubDialog">Cancel</button>
+        <button class="btn github-btn" id="publishGitHubBtn" type="submit">Publish now</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    "use strict";
+
+    const STORAGE_KEY = "tripItinerarySite_v1";
+    const GITHUB_TOKEN_KEY = "tripItineraryGitHubToken_v1";
+    const DEFAULT_GITHUB = Object.freeze({ owner: "sseoyi", repo: "trip", branch: "main", path: "data.json" });
+
+    const $ = (selector, scope = document) => scope.querySelector(selector);
+    const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+
+    function getLocalISODate(date = new Date()) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    }
+
+    function parseISODate(iso) {
+      if (!iso) return new Date();
+      const [year, month, day] = iso.split("-").map(Number);
+      return new Date(year, month - 1, day);
+    }
+
+    function addDays(iso, amount) {
+      const date = parseISODate(iso);
+      date.setDate(date.getDate() + amount);
+      return getLocalISODate(date);
+    }
+
+    function dateDiffInDays(startISO, endISO) {
+      const start = parseISODate(startISO);
+      const end = parseISODate(endISO);
+      return Math.round((end - start) / 86400000);
+    }
+
+    function escapeHTML(value = "") {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function uid(prefix) {
+      if (window.crypto?.randomUUID) return `${prefix}_${crypto.randomUUID()}`;
+      return `${prefix}_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+    }
+
+    function defaultState() {
+      const today = getLocalISODate();
+      return {
+        version: 2,
+        trip: {
+          startDate: today,
+          endDate: addDays(today, 2),
+          totalBudget: 0,
+          currency: "THB",
+          roomAddress: "",
+          phone1Name: "",
+          phone1Number: "",
+          phone2Name: "",
+          phone2Number: "",
+          otherDetails: ""
+        },
+        github: { ...DEFAULT_GITHUB },
+        schedules: [],
+        expenses: [],
+        packing: [],
+        selectedBudgetDate: today
+      };
+    }
+
+    function normalizeState(value) {
+      const base = defaultState();
+      if (!value || typeof value !== "object") return base;
+      return {
+        ...base,
+        ...value,
+        trip: {
+          startDate: value.trip?.startDate || base.trip.startDate,
+          endDate: value.trip?.endDate || base.trip.endDate,
+          totalBudget: Math.max(0, Number(value.trip?.totalBudget ?? base.trip.totalBudget)),
+          currency: value.trip?.currency || base.trip.currency,
+          roomAddress: value.trip?.roomAddress ?? value.trip?.stay ?? "",
+          phone1Name: value.trip?.phone1Name || "",
+          phone1Number: value.trip?.phone1Number || "",
+          phone2Name: value.trip?.phone2Name || "",
+          phone2Number: value.trip?.phone2Number || "",
+          otherDetails: value.trip?.otherDetails ?? value.trip?.notes ?? ""
+        },
+        github: {
+          owner: String(value.github?.owner || "").trim() || base.github.owner,
+          repo: String(value.github?.repo || "").trim() || base.github.repo,
+          branch: String(value.github?.branch || "").trim() || base.github.branch,
+          path: String(value.github?.path || "").trim() || base.github.path
+        },
+        schedules: Array.isArray(value.schedules) ? value.schedules : [],
+        expenses: Array.isArray(value.expenses) ? value.expenses : [],
+        packing: Array.isArray(value.packing) ? value.packing : [],
+        selectedBudgetDate: value.selectedBudgetDate || getLocalISODate()
+      };
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? normalizeState(JSON.parse(raw)) : defaultState();
+      } catch (error) {
+        console.error("Could not load itinerary data", error);
+        return defaultState();
+      }
+    }
+
+    let state = loadState();
+    let toastTimer = null;
+    let autoPublishTimer = null;
+    let publishRequested = false;
+    let publishLoopPromise = null;
+
+    function getStoredGitHubToken() {
+      try { return localStorage.getItem(GITHUB_TOKEN_KEY) || ""; }
+      catch { return ""; }
+    }
+
+    function saveGitHubToken(token) {
+      try {
+        if (token) localStorage.setItem(GITHUB_TOKEN_KEY, token);
+        else localStorage.removeItem(GITHUB_TOKEN_KEY);
+      } catch (error) {
+        console.error("Could not save GitHub token", error);
+      }
+    }
+
+    function setSyncStatus(type, message) {
+      const status = $("#syncStatus");
+      if (!status) return;
+      status.dataset.state = type;
+      $("#syncStatusText").textContent = message;
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function showToast(message) {
+      const toast = $("#toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function formatDate(iso, options = {}) {
+      if (!iso) return "Not set";
+      const date = parseISODate(iso);
+      return new Intl.DateTimeFormat(undefined, {
+        weekday: options.weekday ?? "short",
+        day: "numeric",
+        month: "short",
+        year: options.year ?? "numeric"
+      }).format(date);
+    }
+
+    function formatMoney(value) {
+      const amount = Number(value || 0);
+      const currency = state.trip.currency || "THB";
+      try {
+        return new Intl.NumberFormat(undefined, {
+          style: "currency",
+          currency,
+          maximumFractionDigits: ["VND", "KRW", "JPY"].includes(currency) ? 0 : 2
+        }).format(amount);
+      } catch {
+        return `${amount.toLocaleString()} ${currency}`;
+      }
+    }
+
+    function timeLabel(time) {
+      if (!time) return "Any time";
+      const [hour, minute] = time.split(":").map(Number);
+      const date = new Date();
+      date.setHours(hour, minute, 0, 0);
+      return new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(date);
+    }
+
+    function locationLink(location) {
+      if (!location) return "";
+      const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer">📍 ${escapeHTML(location)}</a>`;
+    }
+
+    function getTripDays() {
+      const { startDate, endDate } = state.trip;
+      if (!startDate || !endDate || dateDiffInDays(startDate, endDate) < 0) return [];
+      const count = dateDiffInDays(startDate, endDate) + 1;
+      return Array.from({ length: count }, (_, index) => addDays(startDate, index));
+    }
+
+    function sortedSchedules(items = state.schedules) {
+      return [...items].sort((a, b) => {
+        const dateCompare = String(a.date).localeCompare(String(b.date));
+        if (dateCompare !== 0) return dateCompare;
+        return String(a.time || "99:99").localeCompare(String(b.time || "99:99"));
+      });
+    }
+
+    function renderTodaySchedule() {
+      const today = getLocalISODate();
+      const list = $("#todayScheduleList");
+      const items = sortedSchedules(state.schedules.filter(item => item.date === today));
+      $("#todayDateLabel").textContent = formatDate(today);
+
+      const completed = items.filter(item => item.done).length;
+      const percent = items.length ? Math.round((completed / items.length) * 100) : 0;
+      $("#scheduleProgressText").textContent = `${completed} of ${items.length} completed`;
+      $("#scheduleProgressPercent").textContent = `${percent}%`;
+      $("#scheduleProgressBar").style.width = `${percent}%`;
+      $("#scheduleProgressWrap").hidden = items.length === 0;
+
+      if (!items.length) {
+        list.innerHTML = `
+          <div class="empty-state">
+            <span class="empty-icon">🗓️</span>
+            <strong>No activities scheduled for today</strong>
+            <span>Add an activity now or manage future days in the full schedule.</span>
+          </div>`;
+        return;
+      }
+
+      list.innerHTML = items.map(item => `
+        <article class="schedule-item ${item.done ? "done" : ""}" data-schedule-id="${escapeHTML(item.id)}">
+          <label class="check-control" aria-label="Mark ${escapeHTML(item.activity)} complete">
+            <input type="checkbox" data-action="toggle-schedule" ${item.done ? "checked" : ""} />
+          </label>
+          <span class="time-pill">${escapeHTML(timeLabel(item.time))}</span>
+          <div>
+            <p class="activity-title">${escapeHTML(item.activity)}</p>
+            ${item.location ? `<div class="activity-meta">${locationLink(item.location)}</div>` : ""}
+            ${item.note ? `<div class="activity-note">${escapeHTML(item.note)}</div>` : ""}
+          </div>
+          <div class="item-menu">
+            <button class="kebab" type="button" data-action="toggle-menu" aria-label="Activity actions">•••</button>
+            <div class="item-menu-popover" hidden>
+              <button type="button" data-action="edit-schedule">Edit</button>
+              <button class="danger" type="button" data-action="delete-schedule">Delete</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function totalSpent() {
+      return state.expenses.reduce((sum, item) => sum + Number(item.amount || 0), 0);
+    }
+
+    function dailySpent(date) {
+      return state.expenses
+        .filter(item => item.date === date)
+        .reduce((sum, item) => sum + Number(item.amount || 0), 0);
+    }
+
+    function ensureSelectedBudgetDate() {
+      const days = getTripDays();
+      const today = getLocalISODate();
+      if (!state.selectedBudgetDate) state.selectedBudgetDate = today;
+      if (days.length && !days.includes(state.selectedBudgetDate)) {
+        if (today >= days[0] && today <= days.at(-1)) state.selectedBudgetDate = today;
+        else state.selectedBudgetDate = days[0];
+      }
+    }
+
+    function renderBudget() {
+      ensureSelectedBudgetDate();
+      const budget = Number(state.trip.totalBudget || 0);
+      const spent = totalSpent();
+      const remaining = budget - spent;
+      const selected = state.selectedBudgetDate;
+      const today = getLocalISODate();
+      const selectedExpenses = state.expenses
+        .filter(item => item.date === selected)
+        .sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
+
+      const remainingCard = $("#remainingCard");
+      remainingCard.classList.toggle("over", remaining < 0);
+      $("#remainingLabel").textContent = remaining < 0 ? "Over budget" : "Remaining";
+      $("#remainingValue").textContent = budget > 0 ? formatMoney(Math.abs(remaining)) : "Set a budget";
+      $("#totalBudgetValue").textContent = formatMoney(budget);
+      $("#spentOverallValue").textContent = formatMoney(spent);
+      $("#spentDayValue").textContent = formatMoney(dailySpent(selected));
+      $("#budgetDayTitle").textContent = selected === today ? "Today" : formatDate(selected, { year: undefined });
+      $("#budgetDayDate").textContent = formatDate(selected);
+
+      const days = getTripDays();
+      const currentIndex = days.indexOf(selected);
+      $("#previousBudgetDayBtn").disabled = days.length > 0 && currentIndex <= 0;
+      $("#nextBudgetDayBtn").disabled = days.length > 0 && currentIndex >= days.length - 1;
+
+      const list = $("#dailyExpenseList");
+      if (!selectedExpenses.length) {
+        list.innerHTML = `
+          <div class="empty-state">
+            <span class="empty-icon">🧾</span>
+            <strong>No expenses for this day</strong>
+            <span>Add only the spending that belongs to ${selected === today ? "today" : formatDate(selected, { weekday: undefined })}.</span>
+          </div>`;
+      } else {
+        list.innerHTML = selectedExpenses.map(item => `
+          <article class="expense-item" data-expense-id="${escapeHTML(item.id)}">
+            <div class="expense-note">${escapeHTML(item.note)}<small>${formatDate(item.date)}</small></div>
+            <div class="expense-amount">−${formatMoney(item.amount)}</div>
+            <div class="item-menu">
+              <button class="kebab" type="button" data-action="toggle-menu" aria-label="Expense actions">•••</button>
+              <div class="item-menu-popover" hidden>
+                <button type="button" data-action="edit-expense">Edit</button>
+                <button class="danger" type="button" data-action="delete-expense">Delete</button>
+              </div>
+            </div>
+          </article>
+        `).join("");
+      }
+    }
+
+    function renderPacking() {
+      const list = $("#packingList");
+      const completed = state.packing.filter(item => item.done).length;
+      $("#packingProgress").textContent = `${completed} / ${state.packing.length}`;
+
+      if (!state.packing.length) {
+        list.innerHTML = `<div class="empty-state"><span class="empty-icon">🧳</span><strong>Your packing list is empty</strong><span>Add essentials so nothing gets left behind.</span></div>`;
+        return;
+      }
+
+      list.innerHTML = state.packing.map(item => `
+        <label class="packing-item ${item.done ? "done" : ""}" data-packing-id="${escapeHTML(item.id)}">
+          <input type="checkbox" data-action="toggle-packing" ${item.done ? "checked" : ""} />
+          <span>${escapeHTML(item.text)}</span>
+          <button class="small-btn danger" type="button" data-action="delete-packing" aria-label="Delete ${escapeHTML(item.text)}">Delete</button>
+        </label>
+      `).join("");
+    }
+
+    function renderTripInfo() {
+      $("#roomAddressDisplay").textContent = state.trip.roomAddress || "Not added";
+      $("#phone1Label").textContent = state.trip.phone1Name || "Phone 1";
+      $("#phone1Display").textContent = state.trip.phone1Number || "Not added";
+      $("#phone2Label").textContent = state.trip.phone2Name || "Phone 2";
+      $("#phone2Display").textContent = state.trip.phone2Number || "Not added";
+      $("#otherDetailsDisplay").textContent = state.trip.otherDetails || "No other details yet.";
+    }
+
+    function renderAll() {
+      renderTodaySchedule();
+      renderBudget();
+      renderPacking();
+      renderTripInfo();
+      saveState();
+    }
+
+    function openDialog(dialog) {
+      if (typeof dialog.showModal === "function") dialog.showModal();
+      else dialog.setAttribute("open", "");
+    }
+
+    function closeDialog(dialog) {
+      if (typeof dialog.close === "function") dialog.close();
+      else dialog.removeAttribute("open");
+    }
+
+    function populateSettings() {
+      $("#settingStartDate").value = state.trip.startDate || "";
+      $("#settingEndDate").value = state.trip.endDate || "";
+      $("#settingBudget").value = Number(state.trip.totalBudget || 0);
+      $("#settingCurrency").value = state.trip.currency || "THB";
+      $("#settingRoomAddress").value = state.trip.roomAddress || "";
+      $("#settingPhone1Name").value = state.trip.phone1Name || "";
+      $("#settingPhone1Number").value = state.trip.phone1Number || "";
+      $("#settingPhone2Name").value = state.trip.phone2Name || "";
+      $("#settingPhone2Number").value = state.trip.phone2Number || "";
+      $("#settingOtherDetails").value = state.trip.otherDetails || "";
+    }
+
+    function openScheduleEditor(item = null, preferredDate = null) {
+      $("#scheduleDialogTitle").textContent = item ? "Edit activity" : "Add activity";
+      $("#scheduleId").value = item?.id || "";
+      $("#scheduleDate").value = item?.date || preferredDate || getLocalISODate();
+      $("#scheduleTime").value = item?.time || "09:00";
+      $("#scheduleActivity").value = item?.activity || "";
+      $("#scheduleLocation").value = item?.location || "";
+      $("#scheduleNote").value = item?.note || "";
+      openDialog($("#scheduleDialog"));
+      setTimeout(() => $("#scheduleActivity").focus(), 50);
+    }
+
+    function renderFullSchedule() {
+      const search = $("#scheduleSearchInput").value.trim().toLowerCase();
+      const filtered = sortedSchedules().filter(item => {
+        if (!search) return true;
+        return [item.activity, item.location, item.note, item.date, item.time]
+          .some(value => String(value || "").toLowerCase().includes(search));
+      });
+
+      const container = $("#fullScheduleList");
+      if (!filtered.length) {
+        container.innerHTML = `<div class="empty-state"><span class="empty-icon">🗺️</span><strong>No schedule items found</strong><span>Add your first activity or try another search.</span></div>`;
+        return;
+      }
+
+      const grouped = filtered.reduce((acc, item) => {
+        (acc[item.date] ||= []).push(item);
+        return acc;
+      }, {});
+
+      container.innerHTML = Object.entries(grouped).map(([date, items]) => `
+        <section class="date-group">
+          <div class="date-heading">
+            <h3>${escapeHTML(formatDate(date))}${date === getLocalISODate() ? " · Today" : ""}</h3>
+            <span>${items.length} activit${items.length === 1 ? "y" : "ies"}</span>
+          </div>
+          ${items.map(item => `
+            <article class="full-item ${item.done ? "done" : ""}" data-schedule-id="${escapeHTML(item.id)}">
+              <span class="time-pill">${escapeHTML(timeLabel(item.time))}</span>
+              <div>
+                <p class="activity-title">${escapeHTML(item.activity)}</p>
+                ${item.location ? `<div class="activity-meta">${locationLink(item.location)}</div>` : ""}
+                ${item.note ? `<div class="activity-note">${escapeHTML(item.note)}</div>` : ""}
+              </div>
+              <div class="inline-actions">
+                <button class="small-btn" type="button" data-action="edit-schedule">Edit</button>
+                <button class="small-btn danger" type="button" data-action="delete-schedule">Delete</button>
+              </div>
+            </article>
+          `).join("")}
+        </section>
+      `).join("");
+    }
+
+    function openExpenseEditor(item) {
+      $("#expenseEditId").value = item.id;
+      $("#expenseEditDate").value = item.date;
+      $("#expenseEditAmount").value = item.amount;
+      $("#expenseEditNote").value = item.note;
+      openDialog($("#expenseEditDialog"));
+    }
+
+    function renderExpenseDetails() {
+      const container = $("#expenseDetailsContent");
+      const expenses = [...state.expenses].sort((a, b) => {
+        const dateCompare = String(a.date).localeCompare(String(b.date));
+        if (dateCompare !== 0) return dateCompare;
+        return Number(a.createdAt || 0) - Number(b.createdAt || 0);
+      });
+
+      if (!expenses.length) {
+        container.innerHTML = `<div class="empty-state"><span class="empty-icon">🧾</span><strong>No expenses recorded</strong><span>Your all-day spending history will appear here.</span></div>`;
+        return;
+      }
+
+      container.innerHTML = `
+        <div style="overflow-x:auto">
+          <table class="detail-table">
+            <thead><tr><th>Date</th><th>Note</th><th class="number">Amount</th></tr></thead>
+            <tbody>
+              ${expenses.map(item => `
+                <tr>
+                  <td>${escapeHTML(formatDate(item.date, { weekday: undefined }))}</td>
+                  <td>${escapeHTML(item.note)}</td>
+                  <td class="number">${escapeHTML(formatMoney(item.amount))}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+        <div class="detail-total">
+          <span>Overall spent</span>
+          <span>${escapeHTML(formatMoney(totalSpent()))}</span>
+        </div>
+      `;
+    }
+
+    function closeAllMenus(except = null) {
+      $$(".item-menu-popover").forEach(menu => {
+        if (menu !== except) menu.hidden = true;
+      });
+    }
+
+    function handleScheduleAction(target) {
+      const card = target.closest("[data-schedule-id]");
+      if (!card) return;
+      const id = card.dataset.scheduleId;
+      const item = state.schedules.find(schedule => schedule.id === id);
+      if (!item) return;
+
+      if (target.dataset.action === "toggle-schedule") {
+        item.done = target.checked;
+        renderAll();
+        scheduleAutoPublish();
+      }
+
+      if (target.dataset.action === "edit-schedule") {
+        closeAllMenus();
+        openScheduleEditor(item);
+      }
+
+      if (target.dataset.action === "delete-schedule") {
+        closeAllMenus();
+        if (!confirm(`Delete “${item.activity}”?`)) return;
+        state.schedules = state.schedules.filter(schedule => schedule.id !== id);
+        renderAll();
+        renderFullSchedule();
+        showToast("Activity deleted");
+        scheduleAutoPublish();
+      }
+    }
+
+    function handleExpenseAction(target) {
+      const card = target.closest("[data-expense-id]");
+      if (!card) return;
+      const id = card.dataset.expenseId;
+      const item = state.expenses.find(expense => expense.id === id);
+      if (!item) return;
+
+      if (target.dataset.action === "edit-expense") {
+        closeAllMenus();
+        openExpenseEditor(item);
+      }
+
+      if (target.dataset.action === "delete-expense") {
+        closeAllMenus();
+        if (!confirm(`Delete “${item.note}” (${formatMoney(item.amount)})?`)) return;
+        state.expenses = state.expenses.filter(expense => expense.id !== id);
+        renderAll();
+        showToast("Expense deleted");
+        scheduleAutoPublish();
+      }
+    }
+
+    $("#openSettingsBtn").addEventListener("click", () => {
+      populateSettings();
+      openDialog($("#settingsDialog"));
+    });
+
+    $("#quickBudgetSettingsBtn").addEventListener("click", () => {
+      populateSettings();
+      openDialog($("#settingsDialog"));
+      setTimeout(() => $("#settingBudget").focus(), 60);
+    });
+
+    $("#editDetailsBtn").addEventListener("click", () => {
+      populateSettings();
+      openDialog($("#settingsDialog"));
+      setTimeout(() => $("#settingRoomAddress").focus(), 60);
+    });
+
+    $("#settingsForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const startDate = $("#settingStartDate").value;
+      const endDate = $("#settingEndDate").value;
+      if (startDate && endDate && endDate < startDate) {
+        alert("The end date cannot be before the start date.");
+        return;
+      }
+
+      state.trip = {
+        startDate,
+        endDate,
+        totalBudget: Math.max(0, Number($("#settingBudget").value || 0)),
+        currency: $("#settingCurrency").value,
+        roomAddress: $("#settingRoomAddress").value.trim(),
+        phone1Name: $("#settingPhone1Name").value.trim(),
+        phone1Number: $("#settingPhone1Number").value.trim(),
+        phone2Name: $("#settingPhone2Name").value.trim(),
+        phone2Number: $("#settingPhone2Number").value.trim(),
+        otherDetails: $("#settingOtherDetails").value.trim()
+      };
+      state.selectedBudgetDate = getLocalISODate();
+      renderAll();
+      closeDialog($("#settingsDialog"));
+      showToast("Trip settings saved");
+      scheduleAutoPublish();
+    });
+
+    $("#clearAllDataBtn").addEventListener("click", () => {
+      if (!confirm("Clear the entire itinerary, all expenses, and packing items? This cannot be undone unless you exported a backup.")) return;
+      state = defaultState();
+      renderAll();
+      populateSettings();
+      closeDialog($("#settingsDialog"));
+      showToast("All trip data cleared");
+      scheduleAutoPublish();
+    });
+
+    $("#addScheduleBtn").addEventListener("click", () => openScheduleEditor(null, getLocalISODate()));
+    $("#addScheduleFromFullBtn").addEventListener("click", () => openScheduleEditor(null, state.trip.startDate || getLocalISODate()));
+
+    $("#scheduleForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const id = $("#scheduleId").value;
+      const payload = {
+        id: id || uid("schedule"),
+        date: $("#scheduleDate").value,
+        time: $("#scheduleTime").value,
+        activity: $("#scheduleActivity").value.trim(),
+        location: $("#scheduleLocation").value.trim(),
+        note: $("#scheduleNote").value.trim(),
+        done: id ? Boolean(state.schedules.find(item => item.id === id)?.done) : false
+      };
+
+      if (!payload.date || !payload.time || !payload.activity) return;
+      const index = state.schedules.findIndex(item => item.id === id);
+      if (index >= 0) state.schedules[index] = payload;
+      else state.schedules.push(payload);
+
+      renderAll();
+      renderFullSchedule();
+      closeDialog($("#scheduleDialog"));
+      showToast(id ? "Activity updated" : "Activity added");
+      scheduleAutoPublish();
+    });
+
+    $("#todayScheduleList").addEventListener("click", event => {
+      const target = event.target;
+      if (target.dataset.action === "toggle-menu") {
+        const menu = target.nextElementSibling;
+        const willOpen = menu.hidden;
+        closeAllMenus();
+        menu.hidden = !willOpen;
+        return;
+      }
+      handleScheduleAction(target);
+    });
+
+    $("#todayScheduleList").addEventListener("change", event => handleScheduleAction(event.target));
+
+    $("#seeFullScheduleBtn").addEventListener("click", () => {
+      $("#scheduleSearchInput").value = "";
+      renderFullSchedule();
+      openDialog($("#fullScheduleDialog"));
+    });
+
+    $("#scheduleSearchInput").addEventListener("input", renderFullSchedule);
+    $("#fullScheduleList").addEventListener("click", event => handleScheduleAction(event.target));
+
+    $("#expenseForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const amount = Number($("#expenseAmount").value);
+      const note = $("#expenseNote").value.trim();
+      if (!Number.isFinite(amount) || amount <= 0 || !note) return;
+
+      state.expenses.push({
+        id: uid("expense"),
+        date: state.selectedBudgetDate,
+        amount,
+        note,
+        createdAt: Date.now()
+      });
+      $("#expenseForm").reset();
+      renderAll();
+      showToast("Expense added");
+      scheduleAutoPublish();
+    });
+
+    $("#dailyExpenseList").addEventListener("click", event => {
+      const target = event.target;
+      if (target.dataset.action === "toggle-menu") {
+        const menu = target.nextElementSibling;
+        const willOpen = menu.hidden;
+        closeAllMenus();
+        menu.hidden = !willOpen;
+        return;
+      }
+      handleExpenseAction(target);
+    });
+
+    $("#expenseEditForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const id = $("#expenseEditId").value;
+      const item = state.expenses.find(expense => expense.id === id);
+      if (!item) return;
+      item.date = $("#expenseEditDate").value;
+      item.amount = Math.max(0, Number($("#expenseEditAmount").value || 0));
+      item.note = $("#expenseEditNote").value.trim();
+      renderAll();
+      closeDialog($("#expenseEditDialog"));
+      showToast("Expense updated");
+      scheduleAutoPublish();
+    });
+
+    $("#previousBudgetDayBtn").addEventListener("click", () => {
+      const days = getTripDays();
+      const currentIndex = days.indexOf(state.selectedBudgetDate);
+      state.selectedBudgetDate = days.length
+        ? days[Math.max(0, currentIndex - 1)]
+        : addDays(state.selectedBudgetDate, -1);
+      renderAll();
+    });
+
+    $("#nextBudgetDayBtn").addEventListener("click", () => {
+      const days = getTripDays();
+      const currentIndex = days.indexOf(state.selectedBudgetDate);
+      state.selectedBudgetDate = days.length
+        ? days[Math.min(days.length - 1, currentIndex + 1)]
+        : addDays(state.selectedBudgetDate, 1);
+      renderAll();
+    });
+
+    $("#seeExpenseDetailsBtn").addEventListener("click", () => {
+      renderExpenseDetails();
+      openDialog($("#expenseDetailsDialog"));
+    });
+
+    $("#packingForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const input = $("#packingInput");
+      const text = input.value.trim();
+      if (!text) return;
+      state.packing.push({ id: uid("packing"), text, done: false });
+      input.value = "";
+      renderAll();
+      showToast("Packing item added");
+      scheduleAutoPublish();
+    });
+
+    $("#packingList").addEventListener("click", event => {
+      const row = event.target.closest("[data-packing-id]");
+      if (!row) return;
+      const id = row.dataset.packingId;
+      if (event.target.dataset.action === "delete-packing") {
+        event.preventDefault();
+        state.packing = state.packing.filter(item => item.id !== id);
+        renderAll();
+        showToast("Packing item deleted");
+        scheduleAutoPublish();
+      }
+    });
+
+    $("#packingList").addEventListener("change", event => {
+      const row = event.target.closest("[data-packing-id]");
+      if (!row || event.target.dataset.action !== "toggle-packing") return;
+      const item = state.packing.find(entry => entry.id === row.dataset.packingId);
+      if (item) item.done = event.target.checked;
+      renderAll();
+      scheduleAutoPublish();
+    });
+
+    $("#printBtn").addEventListener("click", () => window.print());
+
+    $("#exportBtn").addEventListener("click", () => {
+      const payload = JSON.stringify(state, null, 2);
+      const blob = new Blob([payload], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "trip-itinerary-backup.json";
+      anchor.click();
+      URL.revokeObjectURL(url);
+      showToast("Backup exported");
+    });
+
+    $("#importBtn").addEventListener("click", () => $("#importFile").click());
+    $("#importFile").addEventListener("change", async event => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      try {
+        const text = await file.text();
+        const imported = normalizeState(JSON.parse(text));
+        if (!confirm("Replace the current itinerary with this backup?")) return;
+        state = imported;
+        renderAll();
+        showToast("Backup imported");
+        scheduleAutoPublish();
+      } catch (error) {
+        console.error(error);
+        alert("This file could not be imported. Please choose a valid itinerary JSON backup.");
+      } finally {
+        event.target.value = "";
+      }
+    });
+
+
+    function populateGitHubSettings() {
+      $("#githubOwner").value = state.github?.owner || DEFAULT_GITHUB.owner;
+      $("#githubRepo").value = state.github?.repo || DEFAULT_GITHUB.repo;
+      $("#githubBranch").value = state.github?.branch || DEFAULT_GITHUB.branch;
+      $("#githubPath").value = state.github?.path || DEFAULT_GITHUB.path;
+      $("#githubToken").value = getStoredGitHubToken();
+    }
+
+    function encodeBase64Unicode(value) {
+      const bytes = new TextEncoder().encode(value);
+      let binary = "";
+      const chunkSize = 0x8000;
+      for (let index = 0; index < bytes.length; index += chunkSize) {
+        binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize));
+      }
+      return btoa(binary);
+    }
+
+
+    async function uploadStateToGitHub(snapshot, token) {
+      const owner = String(state.github?.owner || DEFAULT_GITHUB.owner).trim() || DEFAULT_GITHUB.owner;
+      const repo = String(state.github?.repo || DEFAULT_GITHUB.repo).trim() || DEFAULT_GITHUB.repo;
+      const branch = String(state.github?.branch || DEFAULT_GITHUB.branch).trim() || DEFAULT_GITHUB.branch;
+      const filePath = String(state.github?.path || DEFAULT_GITHUB.path).trim().replace(/^\/+/, "") || DEFAULT_GITHUB.path;
+      state.github = { owner, repo, branch, path: filePath };
+      saveState();
+
+      const encodedPath = filePath.split("/").map(encodeURIComponent).join("/");
+      const apiURL = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}`;
+      const headers = {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${token}`,
+        "X-GitHub-Api-Version": "2022-11-28"
+      };
+
+      let sha = null;
+      const existingResponse = await fetch(`${apiURL}?ref=${encodeURIComponent(branch)}`, { headers });
+      if (existingResponse.ok) {
+        const existing = await existingResponse.json();
+        sha = existing.sha || null;
+      } else if (existingResponse.status !== 404) {
+        const detail = await existingResponse.json().catch(() => ({}));
+        throw new Error(detail.message || `GitHub check failed (${existingResponse.status})`);
+      }
+
+      const requestBody = {
+        message: `${sha ? "Update" : "Create"} ${filePath} from trip itinerary`,
+        content: encodeBase64Unicode(snapshot),
+        branch
+      };
+      if (sha) requestBody.sha = sha;
+
+      const publishResponse = await fetch(apiURL, {
+        method: "PUT",
+        headers: { ...headers, "Content-Type": "application/json" },
+        body: JSON.stringify(requestBody)
+      });
+      const result = await publishResponse.json().catch(() => ({}));
+      if (!publishResponse.ok) {
+        throw new Error(result.message || `GitHub publish failed (${publishResponse.status})`);
+      }
+      return result;
+    }
+
+    function requestGitHubPublish() {
+      publishRequested = true;
+      if (!publishLoopPromise) {
+        publishLoopPromise = runPublishLoop().finally(() => {
+          publishLoopPromise = null;
+          if (publishRequested) requestGitHubPublish();
+        });
+      }
+      return publishLoopPromise;
+    }
+
+    async function runPublishLoop() {
+      let published = false;
+      while (publishRequested) {
+        publishRequested = false;
+        const token = getStoredGitHubToken();
+        if (!token) {
+          setSyncStatus("warning", "Saved locally · add GitHub token");
+          return false;
+        }
+
+        setSyncStatus("publishing", "Publishing change to data.json…");
+        try {
+          const snapshot = JSON.stringify(state, null, 2);
+          await uploadStateToGitHub(snapshot, token);
+          published = true;
+        } catch (error) {
+          console.error(error);
+          setSyncStatus("error", "Saved locally · GitHub update failed");
+          showToast(`Saved locally · ${error.message}`);
+          return false;
+        }
+      }
+
+      if (published) {
+        const time = new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(new Date());
+        setSyncStatus("success", `Change updated · ${time}`);
+        showToast("Change updated in data.json");
+      }
+      return published;
+    }
+
+    function scheduleAutoPublish() {
+      clearTimeout(autoPublishTimer);
+      if (!getStoredGitHubToken()) {
+        setSyncStatus("warning", "Saved locally · add GitHub token");
+        return;
+      }
+      setSyncStatus("publishing", "Change saved · publishing soon…");
+      autoPublishTimer = setTimeout(() => requestGitHubPublish(), 450);
+    }
+
+    $("#openGitHubBtn").addEventListener("click", () => {
+      populateGitHubSettings();
+      openDialog($("#githubDialog"));
+    });
+
+    $("#githubForm").addEventListener("submit", async event => {
+      event.preventDefault();
+      const owner = $("#githubOwner").value.trim() || DEFAULT_GITHUB.owner;
+      const repo = $("#githubRepo").value.trim() || DEFAULT_GITHUB.repo;
+      const branch = $("#githubBranch").value.trim() || DEFAULT_GITHUB.branch;
+      const filePath = $("#githubPath").value.trim().replace(/^\/+/, "") || DEFAULT_GITHUB.path;
+      const token = $("#githubToken").value.trim();
+      const publishButton = $("#publishGitHubBtn");
+
+      if (!token) {
+        setSyncStatus("warning", "Saved locally · add GitHub token");
+        $("#githubToken").focus();
+        return;
+      }
+
+      state.github = { owner, repo, branch, path: filePath };
+      saveState();
+      saveGitHubToken(token);
+      publishButton.disabled = true;
+      publishButton.textContent = "Publishing…";
+
+      const success = await requestGitHubPublish();
+      if (success) closeDialog($("#githubDialog"));
+
+      publishButton.disabled = false;
+      publishButton.textContent = "Publish now";
+    });
+
+
+    $$('[data-close]').forEach(button => {
+      button.addEventListener("click", () => closeDialog(document.getElementById(button.dataset.close)));
+    });
+
+    $$('dialog').forEach(dialog => {
+      dialog.addEventListener("click", event => {
+        const rect = dialog.getBoundingClientRect();
+        const clickedOutside = event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+        if (clickedOutside) closeDialog(dialog);
+      });
+    });
+
+    document.addEventListener("click", event => {
+      if (!event.target.closest(".item-menu")) closeAllMenus();
+    });
+
+    window.addEventListener("storage", event => {
+      if (event.key !== STORAGE_KEY) return;
+      state = loadState();
+      renderAll();
+    });
+
+    renderAll();
+    if (getStoredGitHubToken()) setSyncStatus("local", "Ready · changes auto-publish");
+    else setSyncStatus("warning", "Saved locally · add GitHub token");
+  </script>
+</body>
+</html>
