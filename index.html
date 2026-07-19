@@ -234,18 +234,18 @@
   function sortedSchedules(list=state.schedules){return[...list].sort((a,b)=>`${a.date} ${a.startTime}`.localeCompare(`${b.date} ${b.startTime}`))}
   function timelineBounds(){let minS=Infinity,maxE=-Infinity;state.schedules.forEach(x=>{minS=Math.min(minS,timeMinutes(x.startTime));maxE=Math.max(maxE,timeMinutes(x.endTime))});if(!isFinite(minS)){minS=8*60;maxE=20*60}let startHour=Math.floor(minS/60),endHour=Math.ceil(maxE/60);if(endHour-startHour<6){const mid=(startHour+endHour)/2;startHour=Math.floor(mid-3);endHour=Math.ceil(mid+3)}startHour=Math.max(0,startHour-1);endHour=Math.min(24,endHour+1);return{startHour,endHour,startMin:startHour*60,endMin:endHour*60}}
   function renderCalendar(){const days=tripDays(),headRow=$("#weekHeadRow"),bodyRow=$("#calendar");if(!days.length){bodyRow.innerHTML=`<div class="empty">Set your trip start and end dates in Settings to see the week.</div>`;headRow.innerHTML="";$("#weekTitle").textContent="";return}
-    const{startHour,endHour,startMin,endMin}=timelineBounds(),totalMin=endMin-startMin,pxPerMin=HOUR_HEIGHT/60,totalHeight=Math.round(totalMin*pxPerMin),step=Math.max(1,Math.round((endHour-startHour)/8));
+    const{startHour,endHour,startMin,endMin}=timelineBounds(),totalMin=endMin-startMin,pxPerMin=HOUR_HEIGHT/60,PAD_V=14,totalHeight=Math.round(totalMin*pxPerMin)+PAD_V*2,step=Math.max(1,Math.round((endHour-startHour)/8));
     $("#weekTitle").textContent=`${new Intl.DateTimeFormat(undefined,{day:"numeric",month:"short"}).format(parseDate(days[0]))} – ${new Intl.DateTimeFormat(undefined,{day:"numeric",month:"short",year:"numeric"}).format(parseDate(days[days.length-1]))}`;
     const colsTemplate=`56px repeat(${days.length},minmax(96px,1fr))`;
     headRow.style.gridTemplateColumns=colsTemplate;bodyRow.style.gridTemplateColumns=colsTemplate;
     headRow.innerHTML=`<div class="weekcal-corner"></div>`+days.map(d=>{const isToday=d===todayISO(),wd=new Intl.DateTimeFormat(undefined,{weekday:"short"}).format(parseDate(d)),dm=isoToDDMM(d);
       return`<div class="weekcal-daycell ${isToday?"today":""}" data-date="${esc(d)}"><div class="wd-weekday">${esc(wd)}</div><div class="wd-date">${esc(dm)}</div></div>`}).join("");
     const hourTops=[];const timeLabels=[];
-    for(let h=startHour;h<=endHour;h+=step){const top=Math.round((h*60-startMin)*pxPerMin);hourTops.push(top);timeLabels.push(`<span style="top:${top}px">${esc(timeLabel(`${String(h%24).padStart(2,"0")}:00`))}</span>`)}
+    for(let h=startHour;h<=endHour;h+=step){const top=PAD_V+Math.round((h*60-startMin)*pxPerMin);hourTops.push(top);timeLabels.push(`<span style="top:${top}px">${esc(timeLabel(`${String(h%24).padStart(2,"0")}:00`))}</span>`)}
     const gutterHtml=`<div class="weekcal-timegutter" style="height:${totalHeight}px">${timeLabels.join("")}</div>`;
     const lines=hourTops.map(top=>`<div class="weekcal-hourline" style="top:${top}px"></div>`).join("");
     const dayCols=days.map(d=>{const events=sortedSchedules(state.schedules.filter(x=>x.date===d)),isToday=d===todayISO();
-      const evHtml=events.map(x=>{const s=Math.min(Math.max(startMin,timeMinutes(x.startTime)),endMin-1),e=Math.max(s+1,Math.min(endMin,timeMinutes(x.endTime))),top=Math.round((s-startMin)*pxPerMin),height=Math.max(22,Math.round((e-s)*pxPerMin)),details=[x.location?`📍 ${x.location}`:"",x.note||""].filter(Boolean).join(" · ");
+      const evHtml=events.map(x=>{const s=Math.min(Math.max(startMin,timeMinutes(x.startTime)),endMin-1),e=Math.max(s+1,Math.min(endMin,timeMinutes(x.endTime))),top=PAD_V+Math.round((s-startMin)*pxPerMin),height=Math.max(22,Math.round((e-s)*pxPerMin)),details=[x.location?`📍 ${x.location}`:"",x.note||""].filter(Boolean).join(" · ");
         return`<article class="weekcal-event ${timePeriodClass(x.startTime)} ${x.done?"done":""}" data-id="${esc(x.id)}" style="top:${top}px;height:${height}px" title="${esc([`${timeLabel(x.startTime)}–${timeLabel(x.endTime)}`,x.activity,details].filter(Boolean).join(" · "))}"><span class="we-time">${esc(timeLabel(x.startTime))}–${esc(timeLabel(x.endTime))}</span><span class="we-name">${esc(x.activity)}</span></article>`}).join("");
       return`<div class="weekcal-daycol ${isToday?"today":""}" data-date="${esc(d)}" style="height:${totalHeight}px">${lines}${evHtml}</div>`}).join("");
     bodyRow.innerHTML=gutterHtml+dayCols;
