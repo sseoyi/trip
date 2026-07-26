@@ -43,7 +43,7 @@
     },
     {
       "id": "schedule_52be0493-9b62-41ea-8e63-487fad0583d1",
-      "date": "2026-08-10",
+      "date": "2026-08-08",
       "startTime": "10:00",
       "endTime": "13:30",
       "activity": "Cloud11 & FuturePark",
@@ -109,9 +109,9 @@
     },
     {
       "id": "schedule_7bd8a1b5-06f3-4cc9-bc5d-fc553a2f542b",
-      "date": "2026-08-09",
-      "startTime": "20:30",
-      "endTime": "21:30",
+      "date": "2026-08-08",
+      "startTime": "16:00",
+      "endTime": "17:30",
       "activity": "LARBYE 2ndHand Market",
       "location": "",
       "note": "centralw0rld GROOVE",
@@ -172,6 +172,39 @@
       "note": "Mon OFF\n09:00 - 20:30",
       "done": false,
       "collectionId": ""
+    },
+    {
+      "id": "schedule_8d0ed9e1-8d85-4534-8922-4ca3612272e0",
+      "date": "2026-08-08",
+      "startTime": "18:00",
+      "endTime": "21:30",
+      "activity": "Sushiro",
+      "location": "Century The Movie B Flr",
+      "note": "10:30 - 21:30",
+      "done": false,
+      "collectionId": ""
+    },
+    {
+      "id": "schedule_698fa413-e485-4f0e-9a76-114e69ac1bdb",
+      "date": "2026-08-10",
+      "startTime": "11:00",
+      "endTime": "12:30",
+      "activity": "Flashback Mansion, Ari Photobooth",
+      "location": "",
+      "note": "11:00 - 20:00\nBTS Ari Exit 3, next to Ari parking lot, Ari 4 North",
+      "done": false,
+      "collectionId": "collection_78b50f54-721d-4555-b1fa-9b6422589e12"
+    },
+    {
+      "id": "schedule_8b3820a3-5393-41b8-b7c4-a9461ba1f844",
+      "date": "2026-08-10",
+      "startTime": "13:00",
+      "endTime": "14:30",
+      "activity": "GUMP’S ARI Photobooth",
+      "location": "",
+      "note": "11:00 - 20:00",
+      "done": false,
+      "collectionId": "collection_4dfefe40-60fe-4734-bc26-efd36d20f994"
     }
   ],
   "expenses": [],
