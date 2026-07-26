@@ -1,8 +1,8 @@
 {
   "version": 4,
   "trip": {
-    "startDate": "2026-07-18",
-    "endDate": "2026-07-20",
+    "startDate": "2026-08-07",
+    "endDate": "2026-08-10",
     "totalBudget": 0,
     "currency": "THB",
     "roomAddress": "",
@@ -35,6 +35,16 @@
       "startTime": "19:00",
       "endTime": "20:00",
       "activity": "PUN COMEBACK SHOW",
+      "location": "",
+      "note": "",
+      "done": false
+    },
+    {
+      "id": "schedule_014bca53-519c-440c-85e1-33a61441fb13",
+      "date": "2026-08-07",
+      "startTime": "18:00",
+      "endTime": "19:00",
+      "activity": "Flashback Mansion, Ari Photobooth",
       "location": "",
       "note": "",
       "done": false
@@ -169,5 +179,5 @@
   "customCollectionTypes": [
     "Shopping"
   ],
-  "selectedBudgetDate": "2026-07-18"
+  "selectedBudgetDate": "2026-08-07"
 }
