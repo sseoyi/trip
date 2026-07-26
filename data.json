@@ -1,8 +1,8 @@
 {
   "version": 4,
   "trip": {
-    "startDate": "2026-07-18",
-    "endDate": "2026-07-20",
+    "startDate": "2026-08-07",
+    "endDate": "2026-08-10",
     "totalBudget": 0,
     "currency": "THB",
     "roomAddress": "",
@@ -102,5 +102,5 @@
     }
   ],
   "customCollectionTypes": [],
-  "selectedBudgetDate": "2026-07-18"
+  "selectedBudgetDate": "2026-08-07"
 }
