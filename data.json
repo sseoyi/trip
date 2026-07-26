@@ -86,17 +86,6 @@
       "collectionId": ""
     },
     {
-      "id": "schedule_44bec218-0319-40d5-aae8-32cee1a043b6",
-      "date": "2026-08-09",
-      "startTime": "12:00",
-      "endTime": "13:30",
-      "activity": "Calling Calling",
-      "location": "",
-      "note": "",
-      "done": false,
-      "collectionId": ""
-    },
-    {
       "id": "schedule_52be0493-9b62-41ea-8e63-487fad0583d1",
       "date": "2026-08-08",
       "startTime": "17:30",
