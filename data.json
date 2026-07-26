@@ -282,6 +282,29 @@
         "end": "19:30"
       },
       "createdAt": 1785053153934
+    },
+    {
+      "id": "collection_f460d571-8fce-4a0a-99e3-15d50561a993",
+      "name": "Calling Calling",
+      "type": "Coffee",
+      "details": "Bangrak / Limit 45mins",
+      "image": "",
+      "links": [
+        {
+          "id": "link_799d5626-54ae-410f-9881-b9b940016ce0",
+          "label": "Maps",
+          "url": "https://maps.app.goo.gl/AogJ2iDiR2JHmZkG6?g_st=ic"
+        }
+      ],
+      "openDays": {
+        "from": "2",
+        "to": "0"
+      },
+      "openTime": {
+        "start": "12:00",
+        "end": "18:00"
+      },
+      "createdAt": 1785059158138
     }
   ],
   "customCollectionTypes": [
