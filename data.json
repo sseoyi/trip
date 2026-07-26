@@ -28,6 +28,16 @@
       "location": "",
       "note": "",
       "done": false
+    },
+    {
+      "id": "schedule_3b1981f0-ae2e-4f61-a20f-6e4cb79a902e",
+      "date": "2026-07-18",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "activity": "PUN COMEBACK SHOW",
+      "location": "",
+      "note": "",
+      "done": false
     }
   ],
   "expenses": [],
