@@ -161,6 +161,17 @@
       "note": "",
       "done": false,
       "collectionId": ""
+    },
+    {
+      "id": "schedule_070added-fcf0-4ef6-a1ec-2b387c2f12f1",
+      "date": "2026-08-09",
+      "startTime": "09:00",
+      "endTime": "10:30",
+      "activity": "Boat Noodles",
+      "location": "",
+      "note": "Mon OFF\n09:00 - 20:30",
+      "done": false,
+      "collectionId": ""
     }
   ],
   "expenses": [],
