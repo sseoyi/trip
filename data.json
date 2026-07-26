@@ -78,6 +78,14 @@
           "url": "https://maps.app.goo.gl/Ro7zP61LkrXryrbw6?g_st=ic"
         }
       ],
+      "openDays": {
+        "from": "1",
+        "to": "0"
+      },
+      "openTime": {
+        "start": "11:00",
+        "end": "20:00"
+      },
       "createdAt": 1785041288899
     },
     {
@@ -93,6 +101,14 @@
           "url": "https://www.instagram.com/p/Da2lIe9E1UI/?igsh=ZXUwdmVnd3cwaTZr"
         }
       ],
+      "openDays": {
+        "from": "0",
+        "to": "0"
+      },
+      "openTime": {
+        "start": "19:00",
+        "end": "20:00"
+      },
       "createdAt": 1785042213481
     },
     {
@@ -108,6 +124,14 @@
           "url": "https://drive.google.com/file/d/1dAZ7JSd1fw8wiX0Ekd8u2DteaExqmFWS/view?usp=drivesdk"
         }
       ],
+      "openDays": {
+        "from": "6",
+        "to": "6"
+      },
+      "openTime": {
+        "start": "14:30",
+        "end": "15:30"
+      },
       "createdAt": 1785042322251
     },
     {
