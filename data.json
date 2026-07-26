@@ -31,19 +31,8 @@
       "collectionId": ""
     },
     {
-      "id": "schedule_014bca53-519c-440c-85e1-33a61441fb13",
-      "date": "2026-08-07",
-      "startTime": "18:00",
-      "endTime": "19:00",
-      "activity": "Flashback Mansion, Ari Photobooth",
-      "location": "",
-      "note": "",
-      "done": false,
-      "collectionId": ""
-    },
-    {
       "id": "schedule_52be0493-9b62-41ea-8e63-487fad0583d1",
-      "date": "2026-08-08",
+      "date": "2026-08-10",
       "startTime": "11:30",
       "endTime": "13:30",
       "activity": "Cloud11 & FuturePark",
@@ -65,7 +54,7 @@
     },
     {
       "id": "schedule_b9413f83-323a-4a4c-92e4-980dc58aa1d8",
-      "date": "2026-08-07",
+      "date": "2026-08-08",
       "startTime": "16:30",
       "endTime": "18:00",
       "activity": "Andy&Fine",
@@ -73,17 +62,6 @@
       "note": "",
       "done": false,
       "collectionId": "collection_5ff4d9f7-81ec-4f16-9cf0-151f861f6a49"
-    },
-    {
-      "id": "schedule_9c02ff03-3cb6-49db-b68f-a8e2d97d5ac4",
-      "date": "2026-08-07",
-      "startTime": "18:00",
-      "endTime": "19:00",
-      "activity": "Animate MBK",
-      "location": "",
-      "note": "",
-      "done": false,
-      "collectionId": ""
     },
     {
       "id": "schedule_e6adb925-7ded-41b0-b63d-dac69450b872",
@@ -185,26 +163,26 @@
       "collectionId": ""
     },
     {
-      "id": "schedule_698fa413-e485-4f0e-9a76-114e69ac1bdb",
-      "date": "2026-08-10",
-      "startTime": "11:00",
-      "endTime": "12:30",
-      "activity": "Flashback Mansion, Ari Photobooth",
-      "location": "",
-      "note": "11:00 - 20:00\nBTS Ari Exit 3, next to Ari parking lot, Ari 4 North",
-      "done": false,
-      "collectionId": "collection_78b50f54-721d-4555-b1fa-9b6422589e12"
-    },
-    {
       "id": "schedule_8b3820a3-5393-41b8-b7c4-a9461ba1f844",
-      "date": "2026-08-10",
-      "startTime": "13:00",
-      "endTime": "14:30",
+      "date": "2026-08-07",
+      "startTime": "16:00",
+      "endTime": "17:30",
       "activity": "GUMP’S ARI Photobooth",
       "location": "",
       "note": "11:00 - 20:00",
       "done": false,
       "collectionId": "collection_4dfefe40-60fe-4734-bc26-efd36d20f994"
+    },
+    {
+      "id": "schedule_4c868f8b-4f69-4798-9521-e3406e0a3784",
+      "date": "2026-08-07",
+      "startTime": "17:30",
+      "endTime": "18:30",
+      "activity": "Flashback Mansion, Ari Photobooth",
+      "location": "",
+      "note": "11:00 - 20:00\nBTS Ari Exit 3, next to Ari parking lot, Ari 4 North",
+      "done": false,
+      "collectionId": "collection_78b50f54-721d-4555-b1fa-9b6422589e12"
     }
   ],
   "expenses": [],
