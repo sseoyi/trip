@@ -44,7 +44,7 @@
     {
       "id": "schedule_52be0493-9b62-41ea-8e63-487fad0583d1",
       "date": "2026-08-08",
-      "startTime": "10:00",
+      "startTime": "11:30",
       "endTime": "13:30",
       "activity": "Cloud11 & FuturePark",
       "location": "",
@@ -164,7 +164,7 @@
     },
     {
       "id": "schedule_070added-fcf0-4ef6-a1ec-2b387c2f12f1",
-      "date": "2026-08-09",
+      "date": "2026-08-08",
       "startTime": "09:00",
       "endTime": "10:30",
       "activity": "Boat Noodles",
