@@ -54,7 +54,7 @@
     },
     {
       "id": "schedule_b9413f83-323a-4a4c-92e4-980dc58aa1d8",
-      "date": "2026-08-08",
+      "date": "2026-08-09",
       "startTime": "16:00",
       "endTime": "17:30",
       "activity": "Andy&Fine",
@@ -154,7 +154,7 @@
     {
       "id": "schedule_8d0ed9e1-8d85-4534-8922-4ca3612272e0",
       "date": "2026-08-08",
-      "startTime": "18:00",
+      "startTime": "18:30",
       "endTime": "21:30",
       "activity": "Sushiro",
       "location": "Century The Movie B Flr",
@@ -164,9 +164,9 @@
     },
     {
       "id": "schedule_8b3820a3-5393-41b8-b7c4-a9461ba1f844",
-      "date": "2026-08-09",
+      "date": "2026-08-08",
       "startTime": "16:00",
-      "endTime": "17:30",
+      "endTime": "17:00",
       "activity": "GUMP’S ARI Photobooth",
       "location": "",
       "note": "11:00 - 20:00",
@@ -175,9 +175,9 @@
     },
     {
       "id": "schedule_4c868f8b-4f69-4798-9521-e3406e0a3784",
-      "date": "2026-08-09",
-      "startTime": "17:30",
-      "endTime": "18:30",
+      "date": "2026-08-08",
+      "startTime": "17:15",
+      "endTime": "18:15",
       "activity": "Flashback Mansion, Ari Photobooth",
       "location": "",
       "note": "11:00 - 20:00\nBTS Ari Exit 3, next to Ari parking lot, Ari 4 North",
