@@ -48,6 +48,26 @@
       "location": "",
       "note": "",
       "done": false
+    },
+    {
+      "id": "schedule_21233ff2-1ed4-45a2-96b8-dc334ee974e2",
+      "date": "2026-08-07",
+      "startTime": "19:00",
+      "endTime": "20:00",
+      "activity": "GUMP’S ARI Photobooth",
+      "location": "",
+      "note": "",
+      "done": false
+    },
+    {
+      "id": "schedule_5d1c483d-5351-4aa3-9c7d-d81621b6b28b",
+      "date": "2026-08-08",
+      "startTime": "14:30",
+      "endTime": "15:30",
+      "activity": "MUSEUM OF SOMNIA",
+      "location": "",
+      "note": "",
+      "done": false
     }
   ],
   "expenses": [],
