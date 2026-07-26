@@ -331,10 +331,27 @@
       "links": [],
       "openDays": null,
       "openTime": {
-        "start": "08:00",
+        "start": "20:00",
         "end": "22:00"
       },
       "createdAt": 1785059737596
+    },
+    {
+      "id": "collection_4addfbd8-6044-4ce8-a93a-1532c8bfddec",
+      "name": "daddy",
+      "type": "Store",
+      "details": "Square: 11:00 - 21:00\nSiamCenter: 10:00 - 22:00",
+      "image": "",
+      "links": [
+        {
+          "id": "link_fa1a9825-f72f-47b2-bcf6-cc09bcdb3a39",
+          "label": "IG",
+          "url": "https://www.instagram.com/daddy_stickerland?igsh=MXBsYTd0OW1mNjZkeg=="
+        }
+      ],
+      "openDays": null,
+      "openTime": null,
+      "createdAt": 1785081849266
     }
   ],
   "customCollectionTypes": [
