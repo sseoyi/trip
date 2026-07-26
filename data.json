@@ -196,7 +196,15 @@
       "collectionId": "collection_9d5db477-59a6-4517-a69b-1ea31f9467e3"
     }
   ],
-  "expenses": [],
+  "expenses": [
+    {
+      "id": "expense_2654a396-b82c-4afd-b203-185c2e91a418",
+      "note": "Hotel",
+      "amount": 3500,
+      "date": "2026-08-07",
+      "createdAt": 1785093406879
+    }
+  ],
   "importantPlaces": [],
   "importantTimes": [],
   "packing": [
