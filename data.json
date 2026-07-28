@@ -219,6 +219,7 @@
   "importantPlaces": [
     {
       "id": "place_6e549984-aa91-4c57-a9bc-f57240b91bb3",
+      "type": "Accommodation",
       "name": "Yello Rooms Hotel Victory Monument",
       "address": "12 Ratchawithi 11 Alley, Thanon Phaya Thai, Ratchathewi, Bangkok, Ratchathewi, Thailand, 10400",
       "note": "Check-in: 07-08-2026 Duration: 3 nights"
@@ -451,5 +452,6 @@
     "Coffee"
   ],
   "customForWhomTypes": [],
+  "bookingCosts": [],
   "selectedBudgetDate": "2026-08-07"
 }
