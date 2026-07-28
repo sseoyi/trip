@@ -452,6 +452,28 @@
     "Coffee"
   ],
   "customForWhomTypes": [],
-  "bookingCosts": [],
+  "bookingCosts": [
+    {
+      "id": "cost_c2943c3a-7fb7-4360-80bd-a4fc7df7f988",
+      "name": "Yello Rooms",
+      "price": 3000000,
+      "qty": 1,
+      "createdAt": 1785241036853
+    },
+    {
+      "id": "cost_b2595df4-6330-41b7-b67a-345584fafd82",
+      "name": "Flight Moone",
+      "price": 4250000,
+      "qty": 1,
+      "createdAt": 1785241049449
+    },
+    {
+      "id": "cost_48bb9999-3a5a-417b-b665-07d7e86bc315",
+      "name": "Flight Alecia",
+      "price": 4600000,
+      "qty": 1,
+      "createdAt": 1785241063738
+    }
+  ],
   "selectedBudgetDate": "2026-08-07"
 }
