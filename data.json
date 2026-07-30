@@ -477,6 +477,13 @@
       "name": "Flight Alecia",
       "price": 4700000,
       "qty": 1
+    },
+    {
+      "id": "cost_edeeadaa-776b-497e-b0e3-f5bbde5c3f80",
+      "name": "SIM",
+      "price": 159000,
+      "qty": 2,
+      "createdAt": 1785403932240
     }
   ],
   "selectedBudgetDate": "2026-08-07"
