@@ -34,7 +34,7 @@
       "id": "schedule_52be0493-9b62-41ea-8e63-487fad0583d1",
       "date": "2026-08-10",
       "startTime": "11:30",
-      "endTime": "14:00",
+      "endTime": "13:30",
       "activity": "Cloud11 & FuturePark",
       "location": "",
       "note": "",
@@ -110,8 +110,8 @@
     {
       "id": "schedule_d80ea731-43d2-4ea8-8c66-d80a45179a93",
       "date": "2026-08-07",
-      "startTime": "19:00",
-      "endTime": "21:00",
+      "startTime": "16:00",
+      "endTime": "17:30",
       "activity": "daddy & asap",
       "location": "Siam Square",
       "note": "",
@@ -121,8 +121,8 @@
     {
       "id": "schedule_c3476789-365c-4a0f-a371-01eadb442912",
       "date": "2026-08-10",
-      "startTime": "16:00",
-      "endTime": "17:00",
+      "startTime": "15:00",
+      "endTime": "16:00",
       "activity": "To Airport",
       "location": "",
       "note": "",
@@ -132,8 +132,8 @@
     {
       "id": "schedule_552fefb9-653e-46dd-9b4f-d64d41062eb8",
       "date": "2026-08-10",
-      "startTime": "15:00",
-      "endTime": "16:00",
+      "startTime": "14:00",
+      "endTime": "15:00",
       "activity": "Check out",
       "location": "",
       "note": "",
@@ -141,32 +141,21 @@
       "collectionId": ""
     },
     {
-      "id": "schedule_070added-fcf0-4ef6-a1ec-2b387c2f12f1",
-      "date": "2026-08-07",
-      "startTime": "14:30",
-      "endTime": "15:30",
-      "activity": "Boat Noodles",
-      "location": "",
-      "note": "Mon OFF\n09:00 - 20:30",
-      "done": false,
-      "collectionId": ""
-    },
-    {
       "id": "schedule_8d0ed9e1-8d85-4534-8922-4ca3612272e0",
-      "date": "2026-08-08",
-      "startTime": "11:00",
-      "endTime": "12:30",
+      "date": "2026-08-09",
+      "startTime": "16:00",
+      "endTime": "18:00",
       "activity": "Sushiro",
-      "location": "Century The Movie B Flr",
+      "location": "B725 7th Floor Central World",
       "note": "10:30 - 21:30",
       "done": false,
       "collectionId": ""
     },
     {
       "id": "schedule_8b3820a3-5393-41b8-b7c4-a9461ba1f844",
-      "date": "2026-08-07",
-      "startTime": "16:00",
-      "endTime": "17:00",
+      "date": "2026-08-08",
+      "startTime": "11:00",
+      "endTime": "11:45",
       "activity": "GUMP’S ARI Photobooth",
       "location": "",
       "note": "11:00 - 20:00",
@@ -175,9 +164,9 @@
     },
     {
       "id": "schedule_4c868f8b-4f69-4798-9521-e3406e0a3784",
-      "date": "2026-08-07",
-      "startTime": "17:00",
-      "endTime": "18:00",
+      "date": "2026-08-08",
+      "startTime": "11:45",
+      "endTime": "12:30",
       "activity": "Flashback Mansion, Ari Photobooth",
       "location": "",
       "note": "11:00 - 20:00\nBTS Ari Exit 3, next to Ari parking lot, Ari 4 North",
@@ -186,9 +175,9 @@
     },
     {
       "id": "schedule_f2d2739f-59f3-414e-85cc-c1e75d9953f5",
-      "date": "2026-08-07",
-      "startTime": "18:00",
-      "endTime": "19:00",
+      "date": "2026-08-08",
+      "startTime": "14:00",
+      "endTime": "14:30",
       "activity": "Animate - ALNST",
       "location": "",
       "note": "",
@@ -209,7 +198,7 @@
     {
       "id": "schedule_9a41a3e9-0dcb-445b-92c0-52903c484a08",
       "date": "2026-08-10",
-      "startTime": "10:30",
+      "startTime": "10:00",
       "endTime": "11:30",
       "activity": "dib Bangkok",
       "location": "",
@@ -249,6 +238,17 @@
       "note": "",
       "done": false,
       "collectionId": "collection_d535dcc6-416c-424d-9513-e99bbff34602"
+    },
+    {
+      "id": "schedule_c39cc631-bb3d-4299-a156-4c505d59e74e",
+      "date": "2026-08-07",
+      "startTime": "17:30",
+      "endTime": "20:00",
+      "activity": "Central Park",
+      "location": "",
+      "note": "Flr 4",
+      "done": false,
+      "collectionId": "collection_42a34a59-5064-44bc-aeab-24afd9e61c98"
     }
   ],
   "expenses": [],
@@ -467,8 +467,8 @@
       "links": [],
       "openDays": null,
       "openTime": {
-        "start": "20:00",
-        "end": "22:00"
+        "start": "10:00",
+        "end": "21:00"
       },
       "createdAt": 1785059737596
     },
@@ -568,6 +568,29 @@
         "end": "17:30"
       },
       "createdAt": 1785505997080
+    },
+    {
+      "id": "collection_42a34a59-5064-44bc-aeab-24afd9e61c98",
+      "name": "Central Park",
+      "type": "Place",
+      "details": "Flr 4",
+      "image": "",
+      "links": [
+        {
+          "id": "link_1741fd59-beda-4ff0-aef1-bacf399155e0",
+          "label": "TikTok",
+          "url": "https://vt.tiktok.com/ZS4M47XLY/"
+        }
+      ],
+      "openDays": {
+        "from": "1",
+        "to": "0"
+      },
+      "openTime": {
+        "start": "10:00",
+        "end": "20:00"
+      },
+      "createdAt": 1785507497909
     }
   ],
   "customCollectionTypes": [
