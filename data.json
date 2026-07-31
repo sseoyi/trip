@@ -249,6 +249,17 @@
       "note": "Flr 4",
       "done": false,
       "collectionId": "collection_42a34a59-5064-44bc-aeab-24afd9e61c98"
+    },
+    {
+      "id": "schedule_f36827af-96d2-4f02-aab8-69c757b930df",
+      "date": "2026-08-09",
+      "startTime": "20:45",
+      "endTime": "21:45",
+      "activity": "Shopping SIAM",
+      "location": "",
+      "note": "",
+      "done": false,
+      "collectionId": ""
     }
   ],
   "expenses": [],
