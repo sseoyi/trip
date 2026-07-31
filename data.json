@@ -238,6 +238,17 @@
       "note": "BK Uni Gate 3 > Baan Silom",
       "done": false,
       "collectionId": ""
+    },
+    {
+      "id": "schedule_b3199ebe-5a02-4b19-8baa-af5d06a2e503",
+      "date": "2026-08-09",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "activity": "Andy&Fine",
+      "location": "",
+      "note": "BACC 3rd Flr\nBAG PTB (Sat&Sun: 8PM)",
+      "done": false,
+      "collectionId": "collection_5ff4d9f7-81ec-4f16-9cf0-151f861f6a49"
     }
   ],
   "expenses": [],
