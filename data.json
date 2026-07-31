@@ -100,7 +100,7 @@
       "id": "schedule_66c69d3b-795f-4368-b506-4d8486d21e71",
       "date": "2026-08-09",
       "startTime": "12:00",
-      "endTime": "13:30",
+      "endTime": "13:00",
       "activity": "Calling Calling",
       "location": "",
       "note": "Bangrak / Limit 45mins",
@@ -142,9 +142,9 @@
     },
     {
       "id": "schedule_070added-fcf0-4ef6-a1ec-2b387c2f12f1",
-      "date": "2026-08-09",
-      "startTime": "09:00",
-      "endTime": "10:30",
+      "date": "2026-08-07",
+      "startTime": "14:30",
+      "endTime": "15:30",
       "activity": "Boat Noodles",
       "location": "",
       "note": "Mon OFF\n09:00 - 20:30",
@@ -198,8 +198,8 @@
     {
       "id": "schedule_c7bbc40b-12d2-4cb4-9ce8-263eef9e1c4a",
       "date": "2026-08-09",
-      "startTime": "10:30",
-      "endTime": "12:00",
+      "startTime": "09:00",
+      "endTime": "10:00",
       "activity": "BUS",
       "location": "",
       "note": "",
@@ -227,6 +227,28 @@
       "note": "Exit 2",
       "done": false,
       "collectionId": "collection_46c1e0f3-2818-4e6a-b378-2ef64069934a"
+    },
+    {
+      "id": "schedule_408ffdf9-665a-4f46-90f0-3dcdceacacd6",
+      "date": "2026-08-09",
+      "startTime": "10:00",
+      "endTime": "11:45",
+      "activity": "River City",
+      "location": "",
+      "note": "",
+      "done": false,
+      "collectionId": "collection_84f578c7-9358-438e-b384-ccc79c570f77"
+    },
+    {
+      "id": "schedule_692c7757-aa93-4863-b6fe-b6cc2b861db9",
+      "date": "2026-08-09",
+      "startTime": "13:45",
+      "endTime": "15:00",
+      "activity": "cafe sou",
+      "location": "",
+      "note": "",
+      "done": false,
+      "collectionId": "collection_d535dcc6-416c-424d-9513-e99bbff34602"
     }
   ],
   "expenses": [],
@@ -506,6 +528,46 @@
         "end": "00:00"
       },
       "createdAt": 1785503605277
+    },
+    {
+      "id": "collection_84f578c7-9358-438e-b384-ccc79c570f77",
+      "name": "River City",
+      "type": "Place",
+      "details": "",
+      "image": "",
+      "links": [
+        {
+          "id": "link_45f345a7-a451-45e8-b096-278caebb4356",
+          "label": "Maps",
+          "url": "https://maps.app.goo.gl/dST8C48Lzwht7diq7?g_st=ic"
+        }
+      ],
+      "openDays": {
+        "from": "1",
+        "to": "0"
+      },
+      "openTime": {
+        "start": "10:00",
+        "end": "20:00"
+      },
+      "createdAt": 1785505921880
+    },
+    {
+      "id": "collection_d535dcc6-416c-424d-9513-e99bbff34602",
+      "name": "cafe sou",
+      "type": "Coffee",
+      "details": "",
+      "image": "",
+      "links": [],
+      "openDays": {
+        "from": "5",
+        "to": "0"
+      },
+      "openTime": {
+        "start": "12:00",
+        "end": "17:30"
+      },
+      "createdAt": 1785505997080
     }
   ],
   "customCollectionTypes": [
