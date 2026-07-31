@@ -34,7 +34,7 @@
       "id": "schedule_52be0493-9b62-41ea-8e63-487fad0583d1",
       "date": "2026-08-10",
       "startTime": "11:30",
-      "endTime": "13:30",
+      "endTime": "14:00",
       "activity": "Cloud11 & FuturePark",
       "location": "",
       "note": "",
@@ -122,7 +122,7 @@
       "id": "schedule_c3476789-365c-4a0f-a371-01eadb442912",
       "date": "2026-08-10",
       "startTime": "16:00",
-      "endTime": "19:55",
+      "endTime": "17:00",
       "activity": "To Airport",
       "location": "",
       "note": "",
@@ -205,17 +205,20 @@
       "note": "",
       "done": false,
       "collectionId": ""
-    }
-  ],
-  "expenses": [
+    },
     {
-      "id": "expense_2654a396-b82c-4afd-b203-185c2e91a418",
-      "note": "Hotel",
-      "amount": 3500,
-      "date": "2026-08-07",
-      "createdAt": 1785093406879
+      "id": "schedule_9a41a3e9-0dcb-445b-92c0-52903c484a08",
+      "date": "2026-08-10",
+      "startTime": "10:30",
+      "endTime": "11:30",
+      "activity": "dib Bangkok",
+      "location": "",
+      "note": "",
+      "done": false,
+      "collectionId": "collection_c24afcc9-34e1-4c3c-8519-d18dc51e8e1a"
     }
   ],
+  "expenses": [],
   "importantPlaces": [
     {
       "id": "place_6e549984-aa91-4c57-a9bc-f57240b91bb3",
@@ -452,6 +455,29 @@
       "openDays": null,
       "openTime": null,
       "createdAt": 1785081849266
+    },
+    {
+      "id": "collection_c24afcc9-34e1-4c3c-8519-d18dc51e8e1a",
+      "name": "dib Bangkok",
+      "type": "Place",
+      "details": "",
+      "image": "",
+      "links": [
+        {
+          "id": "link_0d42b881-7aac-409f-a892-c746e5782d58",
+          "label": "Maps",
+          "url": "https://maps.app.goo.gl/ZLRfUYvtATRPXhfP6?g_st=ic"
+        }
+      ],
+      "openDays": {
+        "from": "4",
+        "to": "1"
+      },
+      "openTime": {
+        "start": "10:00",
+        "end": "19:00"
+      },
+      "createdAt": 1785502632069
     }
   ],
   "customCollectionTypes": [
@@ -482,8 +508,7 @@
       "id": "cost_b8d9ca85-169e-4c0c-97bd-e8541b025218",
       "name": "SIM",
       "price": 159000,
-      "qty": 2,
-      "createdAt": 1785404023413
+      "qty": 2
     }
   ],
   "selectedBudgetDate": "2026-08-07"
