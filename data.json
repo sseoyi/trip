@@ -53,17 +53,6 @@
       "collectionId": ""
     },
     {
-      "id": "schedule_b9413f83-323a-4a4c-92e4-980dc58aa1d8",
-      "date": "2026-08-08",
-      "startTime": "15:30",
-      "endTime": "17:00",
-      "activity": "Andy&Fine",
-      "location": "",
-      "note": "",
-      "done": false,
-      "collectionId": "collection_5ff4d9f7-81ec-4f16-9cf0-151f861f6a49"
-    },
-    {
       "id": "schedule_e6adb925-7ded-41b0-b63d-dac69450b872",
       "date": "2026-08-09",
       "startTime": "19:00",
@@ -100,7 +89,7 @@
       "id": "schedule_66c69d3b-795f-4368-b506-4d8486d21e71",
       "date": "2026-08-09",
       "startTime": "12:00",
-      "endTime": "13:00",
+      "endTime": "12:45",
       "activity": "Calling Calling",
       "location": "",
       "note": "Bangrak / Limit 45mins",
@@ -110,11 +99,11 @@
     {
       "id": "schedule_d80ea731-43d2-4ea8-8c66-d80a45179a93",
       "date": "2026-08-07",
-      "startTime": "16:00",
-      "endTime": "17:30",
-      "activity": "daddy & asap",
+      "startTime": "19:00",
+      "endTime": "22:00",
+      "activity": "Shopping",
       "location": "Siam Square",
-      "note": "",
+      "note": "daddy asap 21:00",
       "done": false,
       "collectionId": ""
     },
@@ -142,9 +131,9 @@
     },
     {
       "id": "schedule_8d0ed9e1-8d85-4534-8922-4ca3612272e0",
-      "date": "2026-08-09",
-      "startTime": "16:00",
-      "endTime": "18:00",
+      "date": "2026-08-08",
+      "startTime": "10:30",
+      "endTime": "12:30",
       "activity": "Sushiro",
       "location": "B725 7th Floor Central World",
       "note": "10:30 - 21:30",
@@ -153,9 +142,9 @@
     },
     {
       "id": "schedule_8b3820a3-5393-41b8-b7c4-a9461ba1f844",
-      "date": "2026-08-08",
-      "startTime": "11:00",
-      "endTime": "11:45",
+      "date": "2026-08-07",
+      "startTime": "16:00",
+      "endTime": "16:30",
       "activity": "GUMP’S ARI Photobooth",
       "location": "",
       "note": "11:00 - 20:00",
@@ -164,9 +153,9 @@
     },
     {
       "id": "schedule_4c868f8b-4f69-4798-9521-e3406e0a3784",
-      "date": "2026-08-08",
-      "startTime": "11:45",
-      "endTime": "12:30",
+      "date": "2026-08-07",
+      "startTime": "16:30",
+      "endTime": "17:00",
       "activity": "Flashback Mansion, Ari Photobooth",
       "location": "",
       "note": "11:00 - 20:00\nBTS Ari Exit 3, next to Ari parking lot, Ari 4 North",
@@ -185,21 +174,10 @@
       "collectionId": "collection_9d5db477-59a6-4517-a69b-1ea31f9467e3"
     },
     {
-      "id": "schedule_c7bbc40b-12d2-4cb4-9ce8-263eef9e1c4a",
-      "date": "2026-08-09",
-      "startTime": "09:00",
-      "endTime": "10:00",
-      "activity": "BUS",
-      "location": "",
-      "note": "",
-      "done": false,
-      "collectionId": ""
-    },
-    {
       "id": "schedule_9a41a3e9-0dcb-445b-92c0-52903c484a08",
-      "date": "2026-08-10",
-      "startTime": "10:00",
-      "endTime": "11:30",
+      "date": "2026-08-09",
+      "startTime": "10:30",
+      "endTime": "11:00",
       "activity": "dib Bangkok",
       "location": "",
       "note": "",
@@ -218,32 +196,10 @@
       "collectionId": "collection_46c1e0f3-2818-4e6a-b378-2ef64069934a"
     },
     {
-      "id": "schedule_408ffdf9-665a-4f46-90f0-3dcdceacacd6",
-      "date": "2026-08-09",
-      "startTime": "10:00",
-      "endTime": "11:45",
-      "activity": "River City",
-      "location": "",
-      "note": "",
-      "done": false,
-      "collectionId": "collection_84f578c7-9358-438e-b384-ccc79c570f77"
-    },
-    {
-      "id": "schedule_692c7757-aa93-4863-b6fe-b6cc2b861db9",
-      "date": "2026-08-09",
-      "startTime": "13:45",
-      "endTime": "15:00",
-      "activity": "cafe sou",
-      "location": "",
-      "note": "",
-      "done": false,
-      "collectionId": "collection_d535dcc6-416c-424d-9513-e99bbff34602"
-    },
-    {
       "id": "schedule_c39cc631-bb3d-4299-a156-4c505d59e74e",
       "date": "2026-08-07",
       "startTime": "17:30",
-      "endTime": "19:00",
+      "endTime": "18:45",
       "activity": "Central Park",
       "location": "",
       "note": "Flr 4",
@@ -252,7 +208,7 @@
     },
     {
       "id": "schedule_f36827af-96d2-4f02-aab8-69c757b930df",
-      "date": "2026-08-09",
+      "date": "2026-08-08",
       "startTime": "20:45",
       "endTime": "21:45",
       "activity": "Shopping SIAM",
@@ -262,24 +218,24 @@
       "collectionId": ""
     },
     {
-      "id": "schedule_3fb5a511-8507-4499-a6c9-b122129f586e",
-      "date": "2026-08-07",
-      "startTime": "19:00",
-      "endTime": "21:00",
-      "activity": "Shopping SIAM",
+      "id": "schedule_31531b56-f192-4dae-bab0-bbb63dc0e4ea",
+      "date": "2026-08-09",
+      "startTime": "21:00",
+      "endTime": "23:30",
+      "activity": "Suki Teenoi",
       "location": "",
       "note": "",
       "done": false,
       "collectionId": ""
     },
     {
-      "id": "schedule_31531b56-f192-4dae-bab0-bbb63dc0e4ea",
-      "date": "2026-08-07",
-      "startTime": "21:00",
-      "endTime": "23:30",
-      "activity": "Suki Teenoi",
+      "id": "schedule_95451f92-4693-459a-af22-6168345b5cae",
+      "date": "2026-08-09",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "activity": "115 EV",
       "location": "",
-      "note": "",
+      "note": "BK Uni Gate 3 > Baan Silom",
       "done": false,
       "collectionId": ""
     }
@@ -624,6 +580,40 @@
         "end": "20:00"
       },
       "createdAt": 1785507497909
+    },
+    {
+      "id": "collection_27364c5b-e865-4c86-a0c1-ac197328a40e",
+      "name": "Paper Planes Project",
+      "type": "Coffee",
+      "details": "40th Flr",
+      "image": "",
+      "links": [],
+      "openDays": {
+        "from": "1",
+        "to": "0"
+      },
+      "openTime": {
+        "start": "09:00",
+        "end": "00:00"
+      },
+      "createdAt": 1785511898457
+    },
+    {
+      "id": "collection_afbff2b7-7859-4f67-a370-f8514582847c",
+      "name": "Miffy Coffee",
+      "type": "Coffee",
+      "details": "",
+      "image": "",
+      "links": [],
+      "openDays": {
+        "from": "1",
+        "to": "0"
+      },
+      "openTime": {
+        "start": "08:00",
+        "end": "23:00"
+      },
+      "createdAt": 1785515530879
     }
   ],
   "customCollectionTypes": [
