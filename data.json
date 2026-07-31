@@ -260,6 +260,17 @@
       "note": "",
       "done": false,
       "collectionId": ""
+    },
+    {
+      "id": "schedule_3fb5a511-8507-4499-a6c9-b122129f586e",
+      "date": "2026-08-07",
+      "startTime": "20:45",
+      "endTime": "21:45",
+      "activity": "Shopping SIAM",
+      "location": "",
+      "note": "",
+      "done": false,
+      "collectionId": ""
     }
   ],
   "expenses": [],
