@@ -288,7 +288,7 @@
       "forWhom": "Me",
       "qty": 2,
       "price": 250,
-      "activityId": "schedule_9c02ff03-3cb6-49db-b68f-a8e2d97d5ac4"
+      "activityId": "schedule_f2d2739f-59f3-414e-85cc-c1e75d9953f5"
     },
     {
       "id": "pack_88a7246d-4ea3-4e60-8cda-ba0e7a7d4184",
@@ -678,6 +678,13 @@
       "name": "SIM",
       "price": 159000,
       "qty": 2
+    },
+    {
+      "id": "cost_92e566dd-9376-47ee-8a60-d1899bd6ad43",
+      "name": "PUN Comeback Show",
+      "price": 2800000,
+      "qty": 1,
+      "createdAt": 1785575194425
     }
   ],
   "selectedBudgetDate": "2026-08-07"
