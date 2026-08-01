@@ -143,8 +143,8 @@
     {
       "id": "schedule_8b3820a3-5393-41b8-b7c4-a9461ba1f844",
       "date": "2026-08-07",
-      "startTime": "16:00",
-      "endTime": "16:30",
+      "startTime": "17:00",
+      "endTime": "17:30",
       "activity": "GUMP’S ARI Photobooth",
       "location": "",
       "note": "11:00 - 20:00",
@@ -154,8 +154,8 @@
     {
       "id": "schedule_4c868f8b-4f69-4798-9521-e3406e0a3784",
       "date": "2026-08-07",
-      "startTime": "16:30",
-      "endTime": "17:00",
+      "startTime": "17:45",
+      "endTime": "18:45",
       "activity": "Flashback Mansion, Ari Photobooth",
       "location": "",
       "note": "11:00 - 20:00\nBTS Ari Exit 3, next to Ari parking lot, Ari 4 North",
@@ -176,24 +176,13 @@
     {
       "id": "schedule_9a41a3e9-0dcb-445b-92c0-52903c484a08",
       "date": "2026-08-09",
-      "startTime": "10:30",
-      "endTime": "11:00",
+      "startTime": "10:00",
+      "endTime": "10:45",
       "activity": "dib Bangkok",
       "location": "",
       "note": "",
       "done": false,
       "collectionId": "collection_c24afcc9-34e1-4c3c-8519-d18dc51e8e1a"
-    },
-    {
-      "id": "schedule_c39cc631-bb3d-4299-a156-4c505d59e74e",
-      "date": "2026-08-07",
-      "startTime": "17:30",
-      "endTime": "18:45",
-      "activity": "Central Park",
-      "location": "",
-      "note": "Flr 4",
-      "done": false,
-      "collectionId": "collection_42a34a59-5064-44bc-aeab-24afd9e61c98"
     },
     {
       "id": "schedule_f36827af-96d2-4f02-aab8-69c757b930df",
@@ -220,9 +209,9 @@
     {
       "id": "schedule_95451f92-4693-459a-af22-6168345b5cae",
       "date": "2026-08-09",
-      "startTime": "11:00",
-      "endTime": "12:00",
-      "activity": "115 EV",
+      "startTime": "10:45",
+      "endTime": "11:30",
+      "activity": "115 EV or cab",
       "location": "",
       "note": "BK Uni Gate 3 > Baan Silom",
       "done": false,
@@ -241,14 +230,47 @@
     },
     {
       "id": "schedule_c880a50a-f792-42ba-9083-b7cae59ab089",
-      "date": "2026-08-08",
-      "startTime": "10:30",
-      "endTime": "12:00",
+      "date": "2026-08-07",
+      "startTime": "16:00",
+      "endTime": "17:30",
       "activity": "tiny frinkets",
       "location": "",
       "note": "",
       "done": false,
       "collectionId": "collection_533d3f9c-627a-4eb8-aaa8-acf2d3ecf7e8"
+    },
+    {
+      "id": "schedule_4399ac52-e4ca-44db-be87-7c1bf58ac80b",
+      "date": "2026-08-09",
+      "startTime": "11:30",
+      "endTime": "14:00",
+      "activity": "River City",
+      "location": "",
+      "note": "",
+      "done": false,
+      "collectionId": "collection_84f578c7-9358-438e-b384-ccc79c570f77"
+    },
+    {
+      "id": "schedule_204659b4-8933-4f00-9d59-58f45b6d41f3",
+      "date": "2026-08-09",
+      "startTime": "17:30",
+      "endTime": "19:00",
+      "activity": "Prepare Show",
+      "location": "",
+      "note": "",
+      "done": false,
+      "collectionId": ""
+    },
+    {
+      "id": "schedule_e330b275-c322-4980-b815-468f1b8f617c",
+      "date": "2026-08-09",
+      "startTime": "14:30",
+      "endTime": "17:00",
+      "activity": "REST",
+      "location": "",
+      "note": "",
+      "done": false,
+      "collectionId": ""
     }
   ],
   "expenses": [],
