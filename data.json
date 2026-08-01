@@ -132,10 +132,10 @@
     {
       "id": "schedule_8d0ed9e1-8d85-4534-8922-4ca3612272e0",
       "date": "2026-08-08",
-      "startTime": "10:30",
-      "endTime": "12:30",
+      "startTime": "17:00",
+      "endTime": "19:00",
       "activity": "Sushiro",
-      "location": "B725 7th Floor Central World",
+      "location": "MBK or B725 7th Floor Central World",
       "note": "10:30 - 21:30",
       "done": false,
       "collectionId": ""
@@ -185,17 +185,6 @@
       "collectionId": "collection_c24afcc9-34e1-4c3c-8519-d18dc51e8e1a"
     },
     {
-      "id": "schedule_77237616-1da0-47f1-9c80-6bb5f870f040",
-      "date": "2026-08-08",
-      "startTime": "17:00",
-      "endTime": "20:00",
-      "activity": "Asiatique",
-      "location": "",
-      "note": "Exit 2",
-      "done": false,
-      "collectionId": "collection_46c1e0f3-2818-4e6a-b378-2ef64069934a"
-    },
-    {
       "id": "schedule_c39cc631-bb3d-4299-a156-4c505d59e74e",
       "date": "2026-08-07",
       "startTime": "17:30",
@@ -209,8 +198,8 @@
     {
       "id": "schedule_f36827af-96d2-4f02-aab8-69c757b930df",
       "date": "2026-08-08",
-      "startTime": "20:45",
-      "endTime": "21:45",
+      "startTime": "19:30",
+      "endTime": "21:00",
       "activity": "Shopping SIAM",
       "location": "",
       "note": "",
@@ -241,7 +230,7 @@
     },
     {
       "id": "schedule_b3199ebe-5a02-4b19-8baa-af5d06a2e503",
-      "date": "2026-08-09",
+      "date": "2026-08-08",
       "startTime": "16:00",
       "endTime": "17:00",
       "activity": "Andy&Fine",
@@ -249,6 +238,17 @@
       "note": "BACC 3rd Flr\nBAG PTB (Sat&Sun: 8PM)",
       "done": false,
       "collectionId": "collection_5ff4d9f7-81ec-4f16-9cf0-151f861f6a49"
+    },
+    {
+      "id": "schedule_c880a50a-f792-42ba-9083-b7cae59ab089",
+      "date": "2026-08-08",
+      "startTime": "10:30",
+      "endTime": "12:00",
+      "activity": "tiny frinkets",
+      "location": "",
+      "note": "",
+      "done": false,
+      "collectionId": "collection_533d3f9c-627a-4eb8-aaa8-acf2d3ecf7e8"
     }
   ],
   "expenses": [],
