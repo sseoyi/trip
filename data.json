@@ -645,6 +645,23 @@
         "end": "23:00"
       },
       "createdAt": 1785515530879
+    },
+    {
+      "id": "collection_533d3f9c-627a-4eb8-aaa8-acf2d3ecf7e8",
+      "name": "tiny frinkets",
+      "type": "Coffee",
+      "details": "",
+      "image": "",
+      "links": [],
+      "openDays": {
+        "from": "1",
+        "to": "0"
+      },
+      "openTime": {
+        "start": "10:00",
+        "end": "18:00"
+      },
+      "createdAt": 1785587776936
     }
   ],
   "customCollectionTypes": [
