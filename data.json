@@ -98,9 +98,9 @@
     },
     {
       "id": "schedule_d80ea731-43d2-4ea8-8c66-d80a45179a93",
-      "date": "2026-08-07",
-      "startTime": "18:00",
-      "endTime": "20:00",
+      "date": "2026-08-08",
+      "startTime": "17:30",
+      "endTime": "19:00",
       "activity": "Shopping",
       "location": "Siam Square",
       "note": "daddy asap 21:00",
@@ -132,8 +132,8 @@
     {
       "id": "schedule_8d0ed9e1-8d85-4534-8922-4ca3612272e0",
       "date": "2026-08-08",
-      "startTime": "17:00",
-      "endTime": "19:00",
+      "startTime": "19:00",
+      "endTime": "20:30",
       "activity": "Sushiro",
       "location": "MBK or B725 7th Floor Central World",
       "note": "10:30 - 21:30",
@@ -183,17 +183,6 @@
       "note": "",
       "done": false,
       "collectionId": "collection_c24afcc9-34e1-4c3c-8519-d18dc51e8e1a"
-    },
-    {
-      "id": "schedule_f36827af-96d2-4f02-aab8-69c757b930df",
-      "date": "2026-08-08",
-      "startTime": "19:30",
-      "endTime": "21:00",
-      "activity": "Shopping SIAM",
-      "location": "",
-      "note": "",
-      "done": false,
-      "collectionId": ""
     },
     {
       "id": "schedule_31531b56-f192-4dae-bab0-bbb63dc0e4ea",
@@ -260,6 +249,17 @@
       "note": "",
       "done": false,
       "collectionId": ""
+    },
+    {
+      "id": "schedule_7323f635-e6ef-4df4-b3e4-49f15407db14",
+      "date": "2026-08-07",
+      "startTime": "18:00",
+      "endTime": "19:00",
+      "activity": "Central Park",
+      "location": "",
+      "note": "Flr 4",
+      "done": false,
+      "collectionId": "collection_42a34a59-5064-44bc-aeab-24afd9e61c98"
     }
   ],
   "expenses": [],
