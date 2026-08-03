@@ -31,7 +31,15 @@
       "collectionId": ""
     }
   ],
-  "expenses": [],
+  "expenses": [
+    {
+      "id": "expense_8eae87ed-f543-43b2-bf51-9269192ccbc7",
+      "note": "Card Peem",
+      "amount": 80,
+      "date": "2026-08-07",
+      "createdAt": 1785768769367
+    }
+  ],
   "importantPlaces": [],
   "importantTimes": [],
   "packing": [],
