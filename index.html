@@ -84,7 +84,35 @@
     dialog{width:min(620px,calc(100% - 24px));max-height:90vh;padding:0;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);box-shadow:none}dialog.wide{width:min(900px,calc(100% - 24px))}dialog::backdrop{background:rgba(28,34,31,.48);backdrop-filter:blur(2px)}.dialog-shell{display:flex;flex-direction:column;max-height:90vh}.dialog-head,.dialog-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:#fafaf8}.dialog-head{border-bottom:1px solid var(--line)}.dialog-head h2{flex:1;min-width:0}.dialog-head-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}.collection-picker-list{display:flex;flex-direction:column;gap:8px}.collection-picker-item{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:left}.collection-picker-item:hover{border-color:var(--blue);background:var(--blue-soft)}.collection-picker-name{font-weight:800;font-size:.92rem}.collection-picker-meta{color:var(--muted);font-size:.76rem}.dialog-foot{justify-content:flex-end;border-top:1px solid var(--line)}.dialog-head h2{margin:0;font-size:1.08rem}.dialog-body{padding:16px;overflow:auto}.close{width:34px;height:34px;border:1px solid var(--line);border-radius:7px;background:#fff}.notice{padding:10px;border:1px solid #e0d4ac;border-radius:8px;background:var(--gold-soft);color:#6d551d;font-size:.78rem}.toast{position:fixed;z-index:9999;left:50%;bottom:22px;transform:translate(-50%,20px);padding:9px 13px;border-radius:8px;background:#202525;color:#fff;font-size:.8rem;font-weight:750;opacity:0;pointer-events:none;transition:.18s}.toast.show{opacity:1;transform:translate(-50%,0)}.table-wrap{overflow:auto}.detail-table{width:100%;border-collapse:collapse}.detail-table th,.detail-table td{padding:9px;border-bottom:1px solid var(--line);text-align:left}.detail-table th{color:var(--muted);font-size:.7rem;text-transform:uppercase}.right{text-align:right!important}
     @media(max-width:900px){.collection-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.details-grid{grid-template-columns:1fr}}
     @media(max-width:680px){.app{width:min(100% - 18px,1180px)}.topbar{min-height:48px}.tabs{top:48px;display:flex;overflow-x:auto}.tab-btn{flex:0 0 auto;min-width:92px;padding-inline:12px}.section{padding:15px}.section-head{flex-direction:column}.actions{width:100%}.actions .btn{flex:1}.schedule-view-switch{width:100%}.schedule-view-btn{flex:1}.calendar-frame{max-height:none}.weekcal-scroll{max-height:60vh}.weekcal-daycell{padding:6px 3px}.weekcal-daycell .wd-date{font-size:.68rem}.schedule-toolbar .btn{align-self:stretch}.today-todo-item{padding-right:40px}.collection-form{grid-template-columns:1fr 1fr}.collection-form input:first-child{grid-column:1/-1}.collection-form textarea{grid-column:1/-1}.collection-form .image-field{grid-column:1}.collection-preview{grid-column:2;grid-row:auto;width:100%;height:40px;aspect-ratio:auto}.collection-form .btn{grid-column:1/-1}.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.expense-form{grid-template-columns:1fr 100px}.expense-form .btn{grid-column:1/-1}.form-grid{grid-template-columns:1fr}.field-group.full{grid-column:auto}.budget-stats{gap:4px}.stat{padding-inline:3px}.stat strong{font-size:.73rem}.info-row{grid-template-columns:100px minmax(0,1fr)}.packing-row3{grid-template-columns:1fr 1fr 1fr}.booking-form{grid-template-columns:1fr 1fr}.booking-form input:first-child{grid-column:1/-1}.booking-form .btn{grid-column:1/-1}dialog{width:100%;max-width:none;margin:auto 0 0;border-radius:11px 11px 0 0}.dialog-shell{max-height:92vh}}
-    @media print{.topbar,.tabs,.actions,.schedule-toolbar,.week-topline,.schedule-view-switch,.collection-form,.expense-form,.tools,.memory-form,.packing-form{display:none!important}.tab-panel[hidden]{display:block!important}.tab-panel{margin-bottom:18px}.calendar-frame{overflow:visible}.collection-grid{grid-template-columns:repeat(4,1fr)}}
+    #printArea{display:none}
+    @media print{
+      @page{margin:14mm}
+      html,body{background:#fff}
+      body *{visibility:hidden}
+      #printArea,#printArea *{visibility:visible}
+      #printArea{display:block;position:absolute;left:0;top:0;width:100%;margin:0;color:#1a1a1a}
+      .print-page{page-break-after:always;padding:0}
+      .print-page:last-child{page-break-after:auto}
+      .print-header{margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #202525}
+      .print-header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:-.01em}
+      .print-header p{margin:0;color:#555;font-size:.85rem}
+      .print-day{margin-bottom:16px;break-inside:avoid}
+      .print-day h3{margin:0 0 6px;font-size:1rem;padding-bottom:4px;border-bottom:1px solid #ccc}
+      .print-table{width:100%;border-collapse:collapse;font-size:.82rem}
+      .print-table th,.print-table td{text-align:left;padding:5px 8px;border-bottom:1px solid #e3e3e3;vertical-align:top}
+      .print-table th{background:#f1f1ee;font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:#444}
+      .print-two-col{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+      .print-section h2{font-size:1.05rem;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid #ccc}
+      .print-place,.print-time-item{margin-bottom:10px;padding-bottom:8px;border-bottom:1px dashed #ddd;break-inside:avoid}
+      .print-place strong,.print-time-item strong{display:block;font-size:.92rem}
+      .print-meta{color:#555;font-size:.78rem}
+      .print-note{font-size:.78rem;color:#333;margin-top:2px}
+      .print-todo-group{margin-bottom:14px;break-inside:avoid}
+      .print-todo-group h3{font-size:.92rem;margin:0 0 6px;color:#444;padding-bottom:4px;border-bottom:1px solid #ccc}
+      .print-todo-item{display:flex;align-items:flex-start;gap:8px;padding:5px 2px;border-bottom:1px solid #eee;font-size:.86rem}
+      .print-checkbox{width:12px;height:12px;border:1.4px solid #444;border-radius:2px;flex:0 0 auto;margin-top:2px}
+      .print-empty{color:#777;font-style:italic;font-size:.85rem}
+    }
   </style>
 </head>
 <body>
@@ -264,6 +292,8 @@
     </section>
   </main>
 
+  <div id="printArea"></div>
+
   <dialog id="scheduleDialog"><form class="dialog-shell" id="scheduleForm"><div class="dialog-head"><h2 id="scheduleDialogTitle">Add activity</h2><div class="dialog-head-actions"><button class="small-btn" id="scheduleImportBtn" type="button">📥 From Collection</button><button class="close" type="button" data-close="scheduleDialog">✕</button></div></div><div class="dialog-body"><input type="hidden" id="scheduleId"/><input type="hidden" id="scheduleCollectionId" value=""/><div class="form-grid"><div class="field-group"><label>Date</label><input id="scheduleDate" type="date" required/></div><div class="field-group"><label>Activity</label><input id="scheduleActivity" maxlength="120" required/></div><div class="field-group"><label>Start time</label><input id="scheduleStart" type="time" required/></div><div class="field-group"><label>End time</label><input id="scheduleEnd" type="time" required/></div><div class="field-group full"><label>Location</label><input id="scheduleLocation" maxlength="180" placeholder="Place name or address"/></div><div class="field-group full"><label>Note</label><textarea id="scheduleNote" maxlength="700" rows="4" placeholder="Tickets, booking details, what to bring…"></textarea></div></div><div class="collection-picker-inline" id="scheduleCollectionPicker"><div class="collection-picker-inline-inner"><div class="collection-picker-list" id="scheduleCollectionPickerList"></div></div></div></div><div class="dialog-foot"><button class="btn danger hidden" id="deleteScheduleBtn" type="button">Delete</button><button class="btn ghost" type="button" data-close="scheduleDialog">Cancel</button><button class="btn" type="submit">Save activity</button></div></form></dialog>
 
   <dialog id="collectionViewDialog"><div class="dialog-shell"><div class="dialog-head"><h2 id="collectionViewTitle">Item</h2><div class="dialog-head-actions"><button class="btn secondary" id="collectionViewEditBtn" type="button">Edit</button><button class="close" type="button" data-close="collectionViewDialog">✕</button></div></div><div class="dialog-body"><div class="view-image hidden" id="collectionViewImage"></div><div class="info-list" id="collectionViewInfo"></div><div id="collectionViewTodoLinked"></div><div class="view-links" id="collectionViewLinks"></div></div></div></dialog>
@@ -396,6 +426,44 @@
   function renderBookingCosts(){const l=$("#bookingCostsList"),a=[...state.bookingCosts].sort((x,y)=>(y.createdAt||0)-(x.createdAt||0)),total=state.bookingCosts.reduce((s,x)=>s+Number(x.price||0)*Number(x.qty||1),0);$("#bookingCostsTotal").textContent=formatVND(total);l.innerHTML=a.length?a.map(x=>`<article class="booking-item" data-id="${esc(x.id)}"><div class="row-main"><strong>${esc(x.name)}</strong><small>${esc(formatVND(x.price))} × ${esc(String(x.qty))}</small></div><div class="booking-amount">${esc(formatVND(Number(x.price||0)*Number(x.qty||1)))}</div><div><button class="small-btn" data-cost-action="edit" type="button">Edit</button> <button class="small-btn danger" data-cost-action="delete" type="button">Delete</button></div></article>`).join(""):`<div class="empty">No booking costs added yet.</div>`}
   function renderPacking(){const done=state.packing.filter(x=>x.done).length;$("#packingProgress").textContent=`${done} / ${state.packing.length}`;populateForWhomSelect(forWhomLastValue);populatePackingActivitySelect($("#packingActivity")?.value||"");$("#packingList").innerHTML=state.packing.length?state.packing.map(x=>{const activity=x.activityId?state.schedules.find(s=>s.id===x.activityId):null,metaBits=[x.forWhom?`For ${x.forWhom}`:"",x.qty>1?`Qty ${x.qty}`:"",x.price>0?formatMoney(x.price):"",activity?`📍 Buy at ${activity.activity}`:""].filter(Boolean).join(" · ");return`<div class="packing-item ${x.done?"done":""}" data-id="${esc(x.id)}"><input type="checkbox" data-packing-action="toggle" aria-label="Mark ${esc(x.text)} packed" ${x.done?"checked":""}/><span class="packing-content" data-packing-action="view">${x.image?`<img class="packing-thumb" src="${esc(x.image)}" alt=""/>`:""}<span class="packing-text"><strong>${esc(x.text)}</strong>${metaBits?`<span class="packing-meta">${esc(metaBits)}</span>`:""}</span></span><button class="small-btn" type="button" data-packing-action="edit">Edit</button></div>`}).join(""):`<div class="empty">Your packing list is empty.</div>`}
   function renderAll(){renderCalendar();renderTodayTodo();renderCollection();renderBudget();renderPlaces();renderTimes();renderTripInfo();renderPacking();renderBookingCosts();$("#quickScheduleDate").min=state.trip.startDate;$("#quickScheduleDate").max=state.trip.endDate}
+  function buildPrintScheduleSection(){
+    const days=tripDays();
+    const grouped={};
+    sortedSchedules(state.schedules).forEach(x=>{(grouped[x.date]=grouped[x.date]||[]).push(x)});
+    const dateKeys=days.length?days:Object.keys(grouped).sort();
+    const rangeLabel=state.trip.startDate&&state.trip.endDate?`${formatDate(state.trip.startDate)} – ${formatDate(state.trip.endDate)}`:"";
+    const daysHtml=dateKeys.map(d=>{
+      const items=grouped[d]||[];
+      if(!items.length)return"";
+      return `<div class="print-day"><h3>${esc(formatDate(d))}</h3><table class="print-table"><thead><tr><th>Time</th><th>Activity</th><th>Location</th><th>Note</th></tr></thead><tbody>${items.map(x=>{const disp=scheduleDisplay(x);return `<tr><td>${esc(timeLabel(x.startTime))}–${esc(timeLabel(x.endTime))}</td><td>${esc(x.activity)}</td><td>${esc(disp.location)}</td><td>${esc(disp.note)}</td></tr>`}).join("")}</tbody></table></div>`;
+    }).join("");
+    return `<section class="print-page"><div class="print-header"><h1>Full Schedule</h1><p>${esc(rangeLabel)}</p></div>${daysHtml||'<p class="print-empty">No schedule items yet.</p>'}</section>`;
+  }
+  function buildPrintAddressesTimesSection(){
+    const places=[...state.importantPlaces].sort((x,y)=>String(x.name).localeCompare(String(y.name)));
+    const times=[...state.importantTimes].sort((x,y)=>`${x.date} ${x.time}`.localeCompare(`${y.date} ${y.time}`));
+    const placesHtml=places.length?places.map(x=>`<div class="print-place"><strong>${esc(x.name)}</strong><div class="print-meta">${esc(x.type||"Other")} · ${esc(x.address)}</div>${x.note?`<div class="print-note">${esc(x.note)}</div>`:""}</div>`).join(""):'<p class="print-empty">No saved addresses.</p>';
+    const timesHtml=times.length?times.map(x=>`<div class="print-time-item"><strong>${esc(x.title)}</strong><div class="print-meta">${esc(formatDate(x.date))} · ${esc(timeLabel(x.time))}</div>${x.details?`<div class="print-note">${esc(x.details)}</div>`:""}</div>`).join(""):'<p class="print-empty">No important times.</p>';
+    const t=state.trip,contactBits=[];
+    if(t.phone1Number)contactBits.push(`${esc(t.phone1Name||"Phone 1")}: ${esc(t.phone1Number)}`);
+    if(t.phone2Number)contactBits.push(`${esc(t.phone2Name||"Phone 2")}: ${esc(t.phone2Number)}`);
+    const contactsHtml=contactBits.length?`<div class="print-place"><strong>Contacts</strong><div class="print-meta">${contactBits.join(" · ")}</div>${t.otherDetails?`<div class="print-note">${esc(t.otherDetails)}</div>`:""}</div>`:"";
+    return `<section class="print-page"><div class="print-header"><h1>Addresses &amp; Important Times</h1></div><div class="print-two-col"><div class="print-section"><h2>Addresses</h2>${placesHtml}${contactsHtml}</div><div class="print-section"><h2>Important Times</h2>${timesHtml}</div></div></section>`;
+  }
+  function buildPrintTodoSection(){
+    const items=state.packing,groups={};
+    items.forEach(x=>{const k=x.forWhom||"General";(groups[k]=groups[k]||[]).push(x)});
+    const groupKeys=Object.keys(groups).sort((a,b)=>a==="General"?1:b==="General"?-1:a.localeCompare(b));
+    const body=groupKeys.map(k=>{
+      const list=groups[k];
+      return `<div class="print-todo-group"><h3>${esc(k)}</h3>${list.map(x=>{
+        const metaBits=[x.qty>1?`Qty ${x.qty}`:"",x.price>0?formatMoney(x.price):""].filter(Boolean).join(" · ");
+        return `<div class="print-todo-item"><span class="print-checkbox"></span><span>${esc(x.text)}${metaBits?` <span class="print-meta">(${esc(metaBits)})</span>`:""}</span></div>`;
+      }).join("")}</div>`;
+    }).join("");
+    return `<section class="print-page"><div class="print-header"><h1>To-do / Packing List</h1></div>${body||'<p class="print-empty">Your packing list is empty.</p>'}</section>`;
+  }
+  function buildPrintArea(){$("#printArea").innerHTML=buildPrintScheduleSection()+buildPrintAddressesTimesSection()+buildPrintTodoSection()}
   function resetPlaceForm(hide=true){$("#placeForm").reset();$("#placeId").value="";$("#placeDeleteBtn").classList.add("hidden");if(hide)$("#placeEditor").classList.remove("open")}
   function showPlaceForm(item=null){resetPlaceForm(false);if(item){$("#placeId").value=item.id;$("#placeType").value=item.type||"Accommodation";$("#placeName").value=item.name;$("#placeAddress").value=item.address;$("#placeNote").value=item.note||"";$("#placeDeleteBtn").classList.remove("hidden")}$("#placeEditor").classList.add("open");setTimeout(()=>$("#placeName").focus(),260)}
   function resetTimeForm(hide=true){$("#timeForm").reset();$("#timeId").value="";$("#timeDate").value=state.trip.startDate;if(hide)$("#timeEditor").classList.remove("open")}
@@ -476,7 +544,7 @@
   $("#packingList").addEventListener("click",e=>{const wrap=e.target.closest("[data-id]");if(!wrap)return;const item=state.packing.find(x=>x.id===wrap.dataset.id);if(!item)return;if(e.target.closest('[data-packing-action="edit"]')){showPackingForm(item);return}if(e.target.closest('input[type="checkbox"]'))return;if(e.target.closest('[data-packing-action="view"]'))openPackingView(item)});
   $("#packingList").addEventListener("change",e=>{if(e.target.dataset.packingAction!=="toggle")return;const x=state.packing.find(x=>x.id===e.target.closest('[data-id]').dataset.id);if(x){x.done=e.target.checked;commit("Packing list updated")}});
   $("#modeToggleBtn").addEventListener("click",()=>{appMode=appMode==="autosave"?"view":"autosave";try{localStorage.setItem(MODE_KEY,appMode)}catch{}applyMode();toast(appMode==="autosave"?"Autosave on · publishes every 15s":"View mode · publish manually")});
-  $("#printBtn").addEventListener("click",()=>window.print());$("#exportBtn").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`trip-data-${todayISO()}.json`;a.click();URL.revokeObjectURL(a.href)});$("#importBtn").addEventListener("click",()=>$("#importFile").click());$("#importFile").addEventListener("change",async e=>{const f=e.target.files[0];if(!f)return;try{state=normalizeState(JSON.parse(await f.text()));commit("Backup imported")}catch{alert("That file is not valid trip data.")}e.target.value=""});$("#publishBtn").addEventListener("click",()=>{if(!getToken()){populateSettings();openDialog($("#settingsDialog"));setTimeout(()=>$("#githubToken").focus(),50)}else requestPublish()});$("#topPublishBtn").addEventListener("click",()=>{if(!getToken()){populateSettings();openDialog($("#settingsDialog"));setTimeout(()=>$("#githubToken").focus(),50)}else requestPublish()});
+  $("#printBtn").addEventListener("click",()=>{buildPrintArea();window.print()});$("#exportBtn").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`trip-data-${todayISO()}.json`;a.click();URL.revokeObjectURL(a.href)});$("#importBtn").addEventListener("click",()=>$("#importFile").click());$("#importFile").addEventListener("change",async e=>{const f=e.target.files[0];if(!f)return;try{state=normalizeState(JSON.parse(await f.text()));commit("Backup imported")}catch{alert("That file is not valid trip data.")}e.target.value=""});$("#publishBtn").addEventListener("click",()=>{if(!getToken()){populateSettings();openDialog($("#settingsDialog"));setTimeout(()=>$("#githubToken").focus(),50)}else requestPublish()});$("#topPublishBtn").addEventListener("click",()=>{if(!getToken()){populateSettings();openDialog($("#settingsDialog"));setTimeout(()=>$("#githubToken").focus(),50)}else requestPublish()});
   document.addEventListener("keydown",e=>{if(e.key==="Escape"){$$('dialog[open]').forEach(closeDialog);if(!$("#scheduleViewPage").hidden)hideScheduleViewPage()}});
   (async()=>{
     await refreshFromRemote();
