@@ -262,7 +262,15 @@
       "collectionId": "collection_42a34a59-5064-44bc-aeab-24afd9e61c98"
     }
   ],
-  "expenses": [],
+  "expenses": [
+    {
+      "id": "expense_17499824-0652-4b23-a4c2-4f28e905c33a",
+      "note": "Card",
+      "amount": 250,
+      "date": "2026-08-07",
+      "createdAt": 1785773422059
+    }
+  ],
   "importantPlaces": [
     {
       "id": "place_6e549984-aa91-4c57-a9bc-f57240b91bb3",
