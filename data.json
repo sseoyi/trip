@@ -335,6 +335,46 @@
       "qty": 1,
       "price": 0,
       "activityId": "schedule_d80ea731-43d2-4ea8-8c66-d80a45179a93"
+    },
+    {
+      "id": "pack_85866884-60b8-4768-8983-6a9ac1e6813b",
+      "done": false,
+      "text": "Lốc dầu",
+      "image": "",
+      "forWhom": "cô 10 + cô út",
+      "qty": 1,
+      "price": 0,
+      "activityId": ""
+    },
+    {
+      "id": "pack_e76e7fc7-7a31-4298-8792-c3c96edf11d0",
+      "done": false,
+      "text": "Thuốc đẹn",
+      "image": "",
+      "forWhom": "Mom",
+      "qty": 5,
+      "price": 0,
+      "activityId": ""
+    },
+    {
+      "id": "pack_a2097f20-7791-4ab7-be44-a2be784679a4",
+      "done": false,
+      "text": "Da heo",
+      "image": "",
+      "forWhom": "Mom",
+      "qty": 4,
+      "price": 0,
+      "activityId": ""
+    },
+    {
+      "id": "pack_654c9273-ecbc-4ab4-ad2a-282ce60ca420",
+      "done": false,
+      "text": "Doristo xanh Sweet corn",
+      "image": "",
+      "forWhom": "ILA",
+      "qty": 2,
+      "price": 0,
+      "activityId": ""
     }
   ],
   "collections": [
@@ -695,7 +735,9 @@
     "Coffee"
   ],
   "customForWhomTypes": [
-    "huchu"
+    "huchu",
+    "cô 10 + cô út",
+    "ILA"
   ],
   "bookingCosts": [
     {
