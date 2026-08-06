@@ -375,6 +375,16 @@
       "qty": 2,
       "price": 0,
       "activityId": ""
+    },
+    {
+      "id": "pack_c9fdd051-0761-4741-aab1-e36cc9a09544",
+      "done": false,
+      "text": "Xoài khô - gói lớn",
+      "image": "",
+      "forWhom": "ILA",
+      "qty": 1,
+      "price": 0,
+      "activityId": ""
     }
   ],
   "collections": [
