@@ -346,6 +346,13 @@
       "amount": 70,
       "date": "2026-08-07",
       "createdAt": 1786121288003
+    },
+    {
+      "id": "expense_90f86204-9708-4b00-a868-71b57ea06a85",
+      "note": "Phở",
+      "amount": 200,
+      "date": "2026-08-07",
+      "createdAt": 1786121373905
     }
   ],
   "importantPlaces": [
