@@ -264,15 +264,8 @@
   ],
   "expenses": [
     {
-      "id": "expense_17499824-0652-4b23-a4c2-4f28e905c33a",
-      "note": "Card",
-      "amount": 250,
-      "date": "2026-08-07",
-      "createdAt": 1785773422059
-    },
-    {
       "id": "expense_4ec8c06f-dfeb-4d61-96f3-e8597d129ebe",
-      "note": "Top Up Rabbit",
+      "note": "Top Up Rabbit 7/8",
       "amount": 100,
       "date": "2026-08-07",
       "createdAt": 1786091955142
@@ -290,6 +283,69 @@
       "amount": 327,
       "date": "2026-08-07",
       "createdAt": 1786091986896
+    },
+    {
+      "id": "expense_1b1ec699-4e91-4a05-9411-8faa51b1eca0",
+      "note": "Top Up Rabbit 7/8 - 2",
+      "amount": 200,
+      "date": "2026-08-07",
+      "createdAt": 1786121051364
+    },
+    {
+      "id": "expense_86843a6a-c525-456e-86ff-8832b9e6f6f9",
+      "note": "Photobooth Flashback ARI",
+      "amount": 280,
+      "date": "2026-08-07",
+      "createdAt": 1786121091039
+    },
+    {
+      "id": "expense_aa62339c-401b-4526-bb32-f92248ded83c",
+      "note": "Moone mua 2nd",
+      "amount": 340,
+      "date": "2026-08-07",
+      "createdAt": 1786121117104
+    },
+    {
+      "id": "expense_29b23fe1-ea32-47cb-9da6-481c70d4df17",
+      "note": "Alecia mua key",
+      "amount": 59,
+      "date": "2026-08-07",
+      "createdAt": 1786121132237
+    },
+    {
+      "id": "expense_fe6c1470-1bd3-4d68-9490-974e831c08cf",
+      "note": "Trứng nướng",
+      "amount": 60,
+      "date": "2026-08-07",
+      "createdAt": 1786121142460
+    },
+    {
+      "id": "expense_a6907b2e-26b1-42a4-aaaa-d834ede34eb7",
+      "note": "In moshi moshi 5c",
+      "amount": 250,
+      "date": "2026-08-07",
+      "createdAt": 1786121173262
+    },
+    {
+      "id": "expense_4c2087e5-c63d-43ef-b58c-4110fbdb6af1",
+      "note": "7-Eleven 7/8",
+      "amount": 117,
+      "date": "2026-08-07",
+      "createdAt": 1786121208281
+    },
+    {
+      "id": "expense_de380e48-e708-49ea-a33d-3fdb1eb674ee",
+      "note": "Moshi Moshi",
+      "amount": 356,
+      "date": "2026-08-07",
+      "createdAt": 1786121270396
+    },
+    {
+      "id": "expense_427ed75d-076f-4bbc-a10a-889ebd825bc0",
+      "note": "Ăn larbye + Coca",
+      "amount": 70,
+      "date": "2026-08-07",
+      "createdAt": 1786121288003
     }
   ],
   "importantPlaces": [
