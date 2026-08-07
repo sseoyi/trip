@@ -76,9 +76,9 @@
     },
     {
       "id": "schedule_7bd8a1b5-06f3-4cc9-bc5d-fc553a2f542b",
-      "date": "2026-08-08",
-      "startTime": "12:30",
-      "endTime": "13:45",
+      "date": "2026-08-07",
+      "startTime": "19:00",
+      "endTime": "20:00",
       "activity": "LARBYE 2ndHand Market",
       "location": "",
       "note": "centralw0rld GROOVE",
@@ -98,7 +98,7 @@
     },
     {
       "id": "schedule_d80ea731-43d2-4ea8-8c66-d80a45179a93",
-      "date": "2026-08-08",
+      "date": "2026-08-07",
       "startTime": "17:30",
       "endTime": "19:00",
       "activity": "Shopping",
@@ -155,7 +155,7 @@
       "id": "schedule_4c868f8b-4f69-4798-9521-e3406e0a3784",
       "date": "2026-08-07",
       "startTime": "16:45",
-      "endTime": "17:45",
+      "endTime": "17:30",
       "activity": "Flashback Mansion, Ari Photobooth",
       "location": "",
       "note": "11:00 - 20:00\nBTS Ari Exit 3, next to Ari parking lot, Ari 4 North",
@@ -186,7 +186,7 @@
     },
     {
       "id": "schedule_31531b56-f192-4dae-bab0-bbb63dc0e4ea",
-      "date": "2026-08-07",
+      "date": "2026-08-09",
       "startTime": "21:00",
       "endTime": "23:30",
       "activity": "Suki Teenoi",
@@ -252,7 +252,7 @@
     },
     {
       "id": "schedule_7323f635-e6ef-4df4-b3e4-49f15407db14",
-      "date": "2026-08-07",
+      "date": "2026-08-08",
       "startTime": "18:00",
       "endTime": "19:00",
       "activity": "Central Park",
@@ -353,6 +353,13 @@
       "amount": 200,
       "date": "2026-08-07",
       "createdAt": 1786121373905
+    },
+    {
+      "id": "expense_0d8fa27a-d73a-45e9-a098-3444f8433df8",
+      "note": "Sứa",
+      "amount": 299,
+      "date": "2026-08-07",
+      "createdAt": 1786121437018
     }
   ],
   "importantPlaces": [
